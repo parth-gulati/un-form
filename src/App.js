@@ -1,11 +1,12 @@
 import './App.css';
-import { Grid } from '@mui/material';
+import FormData from './components/FormData';
 import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
       <Navbar/>
+      <FormData/>
     </div>
   );
 }

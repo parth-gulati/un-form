@@ -13,8 +13,8 @@ const Navbar = () => {
             sx={{ maxHeight: '100%', width: 'auto', mr: 2 }}
           />
           <Box sx={{ flexGrow: 1, textAlign: 'center' }}>
-            <Typography variant="h6" sx={{ color: '#000' }}>
-              UN PEACEKEEPERS
+            <Typography variant="h3" sx={{ color: '#fff', textDecoration: 'underline' }}>
+              UN PEACE KEEPERS
             </Typography>
           </Box>
           <Box

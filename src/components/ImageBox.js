@@ -15,9 +15,6 @@ function ImageBox({ imageUrl }) {
           : 'url("https://via.placeholder.com/200?text=No+Image")',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
         color: '#aaa',
         fontSize: '18px',
       }}

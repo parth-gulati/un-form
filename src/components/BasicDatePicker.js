@@ -6,7 +6,7 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 export default function BasicDatePicker({label}) {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker label={label} />
+        <DatePicker sx={{width: '100%'}} label={label} />
     </LocalizationProvider>
   );
 }

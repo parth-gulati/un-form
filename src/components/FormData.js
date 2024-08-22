@@ -3,12 +3,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
 import TextField from "@mui/material/TextField";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Link from "@mui/material/Link";
 import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
@@ -16,9 +12,10 @@ import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
-import Select, { SelectChangeEvent } from "@mui/material/Select";
+import Select from "@mui/material/Select";
 import ImageBox from "./ImageBox";
 import BasicDatePicker from "./BasicDatePicker";
+import { useEffect } from "react";
 
 const theme = createTheme({
   palette: {
@@ -26,18 +23,38 @@ const theme = createTheme({
   },
 });
 
-export default function SignUp() {
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
+export default function FormData({ csvData }) {
   // State variables
-  const [genericName, setGenericName] = useState("");
+  const [genericName, setGenericName] = useState(null);
+  const [nomenclatureName, setNomenclatureName] = useState(null);
   const [firstName, setFirstName] = useState("");
   const [lppDate, setLppDate] = useState(null); // Assuming date is managed as an object
   const [qtyMsn, setQtyMsn] = useState("");
   const [qtyUnsv, setQtyUnsv] = useState("");
   const [qtyReqd, setQtyReqd] = useState("");
+  const [genericOptions, setGenericOptions] = useState([]);
+
+  useEffect(() => {
+    if (csvData && csvData.length > 0) {
+      setGenericOptions([
+        ...new Set(
+          csvData.map((item) => item?.CATEGORY)
+        ),
+      ]);
+    }
+  }, [csvData]);
 
   // Handle change functions
   const handleGenericNameChange = (event) => {
     setGenericName(event.target.value);
+  };
+
+  const handleNomenclatureNameChange = (event) => {
+    setNomenclatureName(event.target.value);
   };
 
   const handleFirstNameChange = (event) => {
@@ -63,14 +80,6 @@ export default function SignUp() {
   const handleSubmit = (event) => {
     event.preventDefault();
     // Handle form submission, e.g., send the data to an API or display it
-    console.log({
-      genericName,
-      firstName,
-      lppDate,
-      qtyMsn,
-      qtyUnsv,
-      qtyReqd,
-    });
   };
 
   return (
@@ -111,9 +120,13 @@ export default function SignUp() {
                       label="Select Generic Name"
                       onChange={handleGenericNameChange}
                     >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
+                      {genericOptions.map((value, index) => {
+                        return (
+                          <MenuItem key={index} value={value}>
+                            {capitalizeFirstLetter(value)}
+                          </MenuItem>
+                        );
+                      })}
                     </Select>
                   </FormControl>
                 </Grid>
@@ -125,14 +138,20 @@ export default function SignUp() {
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={genericName}
+                      value={nomenclatureName}
                       label=""
-                      disabled
-                      onChange={handleGenericNameChange}
+                      disabled={genericName==null || genericName === ""}
+                      onChange={handleNomenclatureNameChange}
                     >
-                      <MenuItem value={10}>Ten</MenuItem>
-                      <MenuItem value={20}>Twenty</MenuItem>
-                      <MenuItem value={30}>Thirty</MenuItem>
+                      {csvData && csvData
+                        .filter((item) => (item.CATEGORY === genericName))
+                        .map((value, index) => {
+                          return (
+                            <MenuItem key={value.ID} value={value.NAME}>
+                              {value.NAME}
+                            </MenuItem>
+                          );
+                        })}
                     </Select>
                   </FormControl>
                 </Grid>
@@ -157,7 +176,13 @@ export default function SignUp() {
                     onChange={handleLppDateChange}
                   />
                 </Grid>
-                <Grid item container sx={{marginBottom: 2}} spacing={2} xs={12}>
+                <Grid
+                  item
+                  container
+                  sx={{ marginBottom: 2 }}
+                  spacing={2}
+                  xs={12}
+                >
                   <Grid item xs={12} sm={4}>
                     <TextField
                       variant="outlined"

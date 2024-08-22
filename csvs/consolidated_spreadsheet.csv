@@ -1,0 +1,576 @@
+ID,NAME,UNIT,CATEGORY
+1,Filter Clamp Belt Type,Nos,miscellaneous
+2,Injector Assy,Nos,miscellaneous
+3,Coolant Level Sensor (Float Type),Nos,miscellaneous
+4,Plier,Nos,miscellaneous
+5,Float cum boost  charger (FCBC)48V/25 Amp,Nos,miscellaneous
+6,Smoke Detector,Nos,miscellaneous
+7,Fire Alarm System,Nos,miscellaneous
+8,"FM 200 Fire Suppression system fully automated (Dry Powder, CO2)",Nos,miscellaneous
+9,White Paint,Ltrs,miscellaneous
+10,Fire Retardant Paint,Ltrs,miscellaneous
+11,Laser range finder,Nos,miscellaneous
+12,Smoke Detector Plastic,Nos,miscellaneous
+1,Cordless Tele Set,Nos,communication
+2,Telephone with Memory,Nos,communication
+3,RJ 45 Cord & Connector,Nos,communication
+4,RJ 11 Connector,Nos,communication
+5,UTP Cable Cat 6 (make -D Link),Nos,communication
+6,Rozet Box T/P Cord U Line,Nos,communication
+7,"Standard High Capacity NI MH/ Ni CD/ Li-On Battery minimum 2000 mah, 7.2V Normal (for HHRS Sanchar)",Nos,communication
+8,Bty Charger for NI MH/Ni CD/ Li-On Battery (for HHRS Sanchar),Nos,communication
+9,Server PC for Cloud Server,Nos,communication
+10,Cordless Phone Alcatel Delta,Nos,communication
+11,Desktop Computer for programming of Exch,Nos,communication
+12,Laptop for Video Conferencing,Nos,communication
+13,Public Address System (Set),Nos,communication
+14,"Hooter with Flasher, 90 DB",Nos,communication
+15,Calling Bell Cordless,Nos,communication
+16,Beetel 24 Ghz cordless phone with two way speaker,Nos,communication
+17,Cordless telephone,Nos,communication
+18,RJ 45 cord & connector,Nos,communication
+19,RJ 80 connector,Nos,communication
+20,FXS Card (Analog Card),Nos,communication
+21,Exchange 40-60 Lines,Nos,communication
+22,DP Box 50 line,Nos,communication
+23,DP Box 20 line,Nos,communication
+24,Conference Card,Nos,communication
+25,Radio Interface Card,Nos,communication
+26,FXO (CO Jn) card,Nos,communication
+27,Telephone Analog,Nos,communication
+28,Telephone Digital,Nos,communication
+29,DCC (Digital Subscriber),Nos,communication
+30,Bty Charger 12/24V,Nos,communication
+31,PTR (Pulse Tone Radio),Nos,communication
+32,"Switchboard Exchange (128 Line) (08x16port Analog, 01x16port Digital, 01x8port CO, 01x 04 port E1/PRI, 01x04 port Radio Interface card)",Nos,communication
+33,Console for Exchange,Nos,communication
+34,Float cum boost  charger (FCBC)48V/25 Amp,Nos,communication
+35,Bty Charger 12/24V,Nos,communication
+36,DP Box 50 line,Nos,communication
+37,DP Box 20 line,Nos,communication
+38,PTR (Pulse Tone Radio),Nos,communication
+39,DCC (Digital Subscriber),Nos,communication
+40,Splitter 4/6/9 way (each),Nos,communication
+41,FXO (CO Jn) card,Nos,communication
+42,Conference Card,Nos,communication
+43,Radio Interface Card,Nos,communication
+44,Telephone Digital,Nos,communication
+45,Telephone Analog,Nos,communication
+46,"Switchboard Exchange (128 Line) (08x16port Analog, 01x16port Digital, 01x8port CO, 01x 04 port E1/PRI, 01x04 port Radio Interface card)",Nos,communication
+47,Integrated Protection Module (IPM) for Surge Protection,Pkt,communication
+48,Hand Free Speaker Phone,Nos,communication
+49,Mega Phone,Nos,communication
+50,Tele Set Beetel,Nos,communication
+51,Digital Clamp Meter,Nos,communication
+52,2 Line Cordless Telephone Set,Nos,communication
+53,Tele set coller Id,Nos,communication
+54,Tele Set,Nos,communication
+55,RJ-45 Female to Female Connector,Nos,communication
+56,HDD Convertor SATA to USB,Nos,communication
+57,VGA to HDMI Convertor,Nos,communication
+58,Resistance 10Ω,Nos,communication
+59,Resistance 20Ω,Nos,communication
+60,Transistor BC 105,Nos,communication
+61,CPU Card,Nos,communication
+62,PSU Card,Nos,communication
+63,Programming Terminal/ PC,Nos,communication
+1,Clamp Meter,Nos,miscellaneous_2
+2,Toggle Switch (For Elect Purpose),Nos,miscellaneous_2
+3,Canopy White ALS,Nos,miscellaneous_2
+4,Canopy White,Nos,miscellaneous_2
+5,Heavy Duty UV Mosquito/ Insect Trap for Open area,Nos,miscellaneous_2
+6,Kepler Brooks Italia High Back Reclining Leatherette Office/Desk Chair with Leg  Rest (Off White),Nos,miscellaneous_2
+7,Red Cross Flag- 1.8 x 1.2 mts,Nos,miscellaneous_2
+8,Luminous Jacket,Nos,miscellaneous_2
+9,Pole for Flag 17 Feet,Nos,miscellaneous_2
+10,UN Flag 1.8 x 1.2 mtr,Nos,miscellaneous_2
+11,UN Flag 3'x4' for veh,Nos,miscellaneous_2
+12,Water Cane 20 Ltr,Nos,miscellaneous_2
+13,UN Flag 6'x4' for veh,Nos,miscellaneous_2
+14,Diesel/Electric Bhatti,Nos,miscellaneous_2
+15,Cylinder Cleaning Cloth (White),Mtr,miscellaneous_2
+16,Fin Comb,Nos,miscellaneous_2
+17,Handheld metal detectors,Nos,miscellaneous_2
+18,Spare Heating Coil for Electric Chulha,Nos,miscellaneous_2
+19,Spare Heating Rod for Electric Chulha,Nos,miscellaneous_2
+20,Fly catcher 20W,Nos,miscellaneous_2
+21,Tactical vest,Nos,miscellaneous_2
+22,Flag All Colour 4’x4’,Nos,miscellaneous_2
+23,Hand Held Search Light,Nos,miscellaneous_2
+24,Red Runner,Mtr,miscellaneous_2
+25,Agro Net Green HDPE Plastic (50 Mtr),Mtr,miscellaneous_2
+26,MT Fuelling pump,Nos,miscellaneous_2
+27,Oxygen Cylinder (7000 Ltr H Type),Nos,miscellaneous_2
+28,Staller Phoenix Data Recovery Software CD,Nos,miscellaneous_2
+29,Helmet with Visor,Nos,miscellaneous_2
+30,Shield,Nos,miscellaneous_2
+31,Shin Guard,Nos,miscellaneous_2
+32,Baton,Nos,miscellaneous_2
+33,Bathroom corner shelf,Nos,miscellaneous_2
+34,Compass,Nos,miscellaneous_2
+35,Wooden Base with 6 feet Pole for Flag,Nos,miscellaneous_2
+36,UN Flag 1.8 x 1.2 meter,Nos,miscellaneous_2
+37,Mirror Bathroom (with shelf),Nos,miscellaneous_2
+38,Electric Cook Top Large,Nos,miscellaneous_2
+39,Electric Cook Top Medium,Nos,miscellaneous_2
+40,Spare Heating Coil for Electric Chulha,Nos,miscellaneous_2
+41,Spare Heating Rod for Electric Chulha,Nos,miscellaneous_2
+42,Bullet proof cover Sky Blue colour with UN emblem embroidered (for BPJ),Nos,miscellaneous_2
+43,Carabiner,Nos,miscellaneous_2
+44,Baton,Nos,miscellaneous_2
+45,Mega Phone 30W,Nos,miscellaneous_2
+46,Carpet Floor (8ft x 11 ft),Nos,miscellaneous_2
+47,Wheeled Foam type Extinguisher 125 Ltr,Nos,miscellaneous_2
+48,60 Kg Powder wheeled fire Extinguisher,Nos,miscellaneous_2
+49,Fire Hose Cabinet,Nos,miscellaneous_2
+50,Fire Water Hose pipe 15 Mtr,Nos,miscellaneous_2
+51,Fire Extinguisher 9 Ltr Foam type,Nos,miscellaneous_2
+52,Fire Extinguisher 6 Kg Dry Powder ABC,Nos,miscellaneous_2
+53,Mega Phone,Nos,miscellaneous_2
+54,Fire Fighting Tag Punch  Machine,Nos,miscellaneous_2
+55,Dry Powder Fire Extinguisher Ball (1.3 Kgs),Nos,miscellaneous_2
+56,Fire Hooter (Hooter with Flasher),Nos,miscellaneous_2
+57,Smoke Detector Plastic,Nos,miscellaneous_2
+58,45 Ltr Wheeled Type Foam Extinguisher,Nos,miscellaneous_2
+59,2K Solid Paint Black Axalta,Ltrs,miscellaneous_2
+60,Synthetic Enamel Black Aspa,Ltrs,miscellaneous_2
+61,2K Solid Paint White Axalta,Ltrs,miscellaneous_2
+62,Synthetic Enamel White Aspa,Ltrs,miscellaneous_2
+63,Synthetic Enamel Blue Azure,Ltrs,miscellaneous_2
+64,2K Solid Paint Blue Axalta,Ltrs,miscellaneous_2
+65,Synthetic Thinner,Ltrs,miscellaneous_2
+66,2K PU Fast Hardener Axalta,Kgs,miscellaneous_2
+67,2K MS PU Hardener 1L Axalta,Kgs,miscellaneous_2
+68,2K PU Thinner Axalta,Ltrs,miscellaneous_2
+69,Abrasive Cloth Roll Emery Grit 40,Pcs,miscellaneous_2
+70,Abrasive Cloth Roll Emery Grit 60,Pcs,miscellaneous_2
+71,Abrasive Cloth Roll Emery Grit 320,Pcs,miscellaneous_2
+72,Cotton Waste Cloth,Kgs,miscellaneous_2
+73,"Rivet  Gun 17"" (425mm)",Nos,miscellaneous_2
+74,"Iron Cutting Balde 14""",Nos,miscellaneous_2
+75,"Drilling Bit Set  Heavy duty SS (5mm,6mm,8mm , 10mm & 15mm)",Nos,miscellaneous_2
+76,"Iron Cutting wheel  5""",Nos,miscellaneous_2
+77,"Iron Cutting  wheel 4""",Nos,miscellaneous_2
+78,"Grinding Wheel (Bosch) 4""",Nos,miscellaneous_2
+79,Self Tapping Screw 8mm & 10mm,Kgs,miscellaneous_2
+80,Hand Drilling Machine heavy  GSB-450,Nos,miscellaneous_2
+81,"Hand Grinder 4"" GWS-600",Nos,miscellaneous_2
+82,Portable Hand Grinder,Nos,miscellaneous_2
+83,Iron Cutting Machine  355mm,Nos,miscellaneous_2
+84,Rivet Machine R-006,Nos,miscellaneous_2
+85,Measuring Tape 30 Mtr & 15 Mtr,Nos,miscellaneous_2
+86,"Aluminium Rivets 1""X1/2""",Kg,miscellaneous_2
+87,"Iron Cutter Blade 9""",Nos,miscellaneous_2
+88,Electric Cordless  impact Wrench Machine  Drill Electric  GDS 18V-400,Nos,miscellaneous_2
+89,Binding Wire Gi 14 Swg,Nos,miscellaneous_2
+90,Trowel 30 CM,Nos,miscellaneous_2
+91,"Electric Tile cutter 1450W, 125mm, Disc dia 1200 RPM",Nos,miscellaneous_2
+92,Tasla,Nos,miscellaneous_2
+93,Plum Bob 500GM,Box,miscellaneous_2
+94,Spirit Level 2 Feet Length,Box,miscellaneous_2
+95,Pointing Trawler 150GM,Ltr,miscellaneous_2
+96,Brick Hammer 1/2 KG,Nos,miscellaneous_2
+97,Ramper 5 KG,Nos,miscellaneous_2
+98,Bulb Holder Thread Type Angle PVC,Nos,miscellaneous_2
+99,Bulb Holder Normal Type Pendent PVC,Nos,miscellaneous_2
+100,Tube Light Choke   20W 230 V,Nos,miscellaneous_2
+101,Photocell for security Light (Light Detector),Nos,miscellaneous_2
+102,Food Warmer Heating Element 2000W,Nos,miscellaneous_2
+103,Geyser Heating Element Thread Type 2000W,Nos,miscellaneous_2
+104,Geyser Heating Element W/O Thread 2000 W,Nos,miscellaneous_2
+1,Chess Board set,Nos,sports
+2,Badminton Net,Nos,sports
+3,Volley Ball Net,Nos,sports
+4,Volley Ball,Nos,sports
+5,Badminton Rackets,Set,sports
+6,Badminton Shuttle Cock,Box,sports
+7,Cricket stump,Set,sports
+8,Carrom Board with Coins,Nos,sports
+9,Cricket bat,Nos,sports
+10,Chess Board,Nos,sports
+11,Carrom Board with coins,Nos,sports
+12,Dart Board,Nos,sports
+13,Lawn tennis Ball Cosco or equivalent,Nos,sports
+14,Football,Nos,sports
+15,"Bouncer Dumbbell Set (Pair of each
+ 5,10, 20, 25 Kgs )",Set,sports
+16,"Rubber Plates (50mm) (Set 1kg x 4, 2kg x 4, 10kg x 4)",Set,sports
+17,"Bouncer Dumbbell Set (Pair of each 5,10, 20, 25 Kgs )",Set,sports
+18,Cross Trainer,Nos,sports
+19,Gym Cycle,Nos,sports
+20,Medicine Balls 5KG,Nos,sports
+21,Multi Gym 5 Stn,Nos,sports
+22,Treadmill (AC Motor 3.0 HP Cont 5.0 HP peak),Nos,sports
+23,Decline Bench Olympic,Nos,sports
+24,Incline Bench Olympic,Nos,sports
+25,Rod 25mm 6 ft,Nos,sports
+26,Rod 28mm 4 ft,Nos,sports
+27,EZ-V Bar 4ft (25mm),Nos,sports
+1,Synthetic rubber Adheshive ( Fevicol SR 998) 250 ml x 3,ml,plumbing
+2,Anabond Tube 85 Gms Red (Jointing Paste),Nos,plumbing
+3,Rust cleaner (weight 315g),Nos,plumbing
+4,Varnish Insulation,Ltr,plumbing
+5,Thread Tape,Nos,plumbing
+6,Loom Tape PVC,Nos,plumbing
+7,Angle cock 1/2 Inch,Nos,plumbing
+8,Water Servicing Machine,Nos,plumbing
+9,Teflon Wire,Nos,plumbing
+10,"Emery Paper Grit(120,150,200,400,)",Sht,plumbing
+11,"Washer Alluminium (10mm, 12mm, 14mm, 17mm, 19mm, 22mm, 24mm, 27mm, 30mm, 32mm, 36mm)",Pkt,plumbing
+12,"Plane Washer (17mm, 19mm, 22mm, 24mm, 27mm)",Kg,plumbing
+13,"Sleeve For Insulation (8MM, 10MM)",Nos,plumbing
+14,Pipe rubber 1/3 inch,Mtr,plumbing
+15,Iron Cutter/Iron cutting machine,Nos,plumbing
+16,Teflon Tape,Pcs,plumbing
+17,Masking Tape 1 x 30M Automatic Grade,Pcs,plumbing
+18,Paint Spray Gun 1.8 Air Gunja/Devil Bliss,Pcs,plumbing
+19,Pneumatic Sander 6 Inch 6 Hole Norton,Pcs,plumbing
+20,Laminated Board 18mm 8'x4',Nos,plumbing
+21,Drill Bit Set Wooden,Nos,plumbing
+22,Hand Drilling Machine,Nos,plumbing
+23,"Zigsaw Cutter Blade 6""",Nos,plumbing
+24,"Star Screw 3""",Kg,plumbing
+25,"Star Screw 2""",Kg,plumbing
+26,"Star Screw 1/2""",Kg,plumbing
+27,"Door Window Handle Steel 4""",Nos,plumbing
+28,Steel Handle 6'',Nos,plumbing
+29,Fiber Handle 6'',Nos,plumbing
+30,Fiber Handle 4'',Nos,plumbing
+31,"Door Lock Complete Set 6""",Nos,plumbing
+32,Wooden Beading 1x8' Long,Nos,plumbing
+33,Wooden Beading 1.5x8',Nos,plumbing
+34,Wooden Beading 2x8',Nos,plumbing
+35,"Tower Bolt 3""",Nos,plumbing
+36,"Tower Bolt 4""",Nos,plumbing
+37,"Tower Bolt 6""",Nos,plumbing
+38,"Hinge Steel 3""",Nos,plumbing
+39,"Hinge Steel 4""",Nos,plumbing
+40,"Hinge Steel 6""",Nos,plumbing
+41,Beading Plastic Role,Nos,plumbing
+42,Hand Circular Saw Machine 3 Inch,Nos,plumbing
+43,Zig Saw Machine,Nos,plumbing
+44,"Hand Circular Saw Machine Blade 4""",Nos,plumbing
+45,Electrical Plainer Balde,Nos,plumbing
+46,"Electrical Circular Machine Balde 6""",Nos,plumbing
+47,Mitre Saw Machine,Nos,plumbing
+48,Wood Chisel 2 Inch,Nos,plumbing
+49,Wood Chisel 1 Inch,Nos,plumbing
+50,Wood Chisel 1/2 Inch,Nos,plumbing
+51,Square Carpenter,Nos,plumbing
+52,Ball Pen Hammer,Nos,plumbing
+53,Electrical Plainer Indian,Nos,plumbing
+54,Pionjar Carpenter,Nos,plumbing
+55,T Bar Clamp 6 Feet,Nos,plumbing
+56,Standing Machine Flap Disk A-60,Nos,plumbing
+57,Standing Machine Flap Disk A-80,Nos,plumbing
+58,Standing Machine Flap Disk A-120,Nos,plumbing
+59,"Steel Screw 5""",Pkt,plumbing
+60,"Iron Screw 1""",Kg,plumbing
+61,"Iron Screw 2""",Kg,plumbing
+62,"Iron Screw 3""",Nos,plumbing
+63,Fiber Glass 4mm 4'x8',Nos,plumbing
+64,Fevicol Sr 998,Nos,plumbing
+65,Sanding Paper No :60 (3 Meter),Nos,plumbing
+66,Sanding Paper No :100 (3 Meter),Nos,plumbing
+67,Sanding Paper No :120 (3 Meter),Nos,plumbing
+68,Sanding Paper No :200 (3 Meter),Nos,plumbing
+69,Wood Stapler Gun,Nos,plumbing
+70,Mirror 24''x18',Nos,plumbing
+71,"Wooden Timber 1""X6"" Lengths 12 Feet",Nos,plumbing
+72,"Wooden Timber 4""X8"" Lengths 12 Feet",Nos,plumbing
+73,"Gi Pipe 1"" 20' Long",Nos,plumbing
+74,"Gi Pipe 3/4"" 20' Long",Nos,plumbing
+75,"Gi Pipe 1/2"" 20' Long",Nos,plumbing
+76,"Gi Socket 1/2""",Nos,plumbing
+77,"Gi Socket 3/4""",Nos,plumbing
+78,"Gi Reducer 1"" X 3/4""",Nos,plumbing
+79,"Gi Reducer 3/4 X1/2""",Nos,plumbing
+80,"Gi Elbow 3/4""",Nos,plumbing
+81,"Gi Unoin 1/2""",Nos,plumbing
+82,"Gi Union 1""",Nos,plumbing
+83,"Gi T 1/2""",Nos,plumbing
+84,"Pipe Upvc 1"" (White Colour)",Nos,plumbing
+85,"Pvc 45 Degree Elbow 4""",Nos,plumbing
+86,"Pvc T Equal Dia 4""",Nos,plumbing
+87,"Bib Cock Brass 1/2""",Nos,plumbing
+88,"Brass Stop Cock 3/4""",Nos,plumbing
+89,"Brass Stop Cock  1/2""",Nos,plumbing
+90,Water Storage Tanks Bladder Type 7000 L,Nos,plumbing
+91,PVC Water Storage Tanks  Type 3 layer 7500Ltr   capacity,Nos,plumbing
+92,"Gi Tank Nipple 2""",Nos,plumbing
+93,"Gi Tank Nipple 1""",Nos,plumbing
+94,M Seal100gm,Nos,plumbing
+95,Taflan Tape 12mmx5 Mtr,Nos,plumbing
+96,"Stop Cock Brass 1""",Nos,plumbing
+97,Water Proof Tape (Butyl Type) 10mmx5Mtr,Nos,plumbing
+98,"PVC Reducer 1/2"" To 3/4""",Nos,plumbing
+99,"Socket 1"" PVC",Nos,plumbing
+100,"Elbow 45⁰ 3/4""  PVC",Nos,plumbing
+101,"Elbow  45⁰ 1/2""  PVC",Nos,plumbing
+102,"Union 3/4""  PVC",Nos,plumbing
+103,"End Cap 1"" PVC",Nos,plumbing
+104,"End Cap 3/4 ""PVC",Nos,plumbing
+105,"End Cap 1/2""  PVC",Nos,plumbing
+106,"Tee Bend 1""  PVC",Nos,plumbing
+107,"Tee Bend 1/2"" PVC",Nos,plumbing
+108,"Plug 1"" PVC",Nos,plumbing
+109,"Plug 1/2""  PVC",Nos,plumbing
+110,"Plug 3/4""  PVC",Nos,plumbing
+111,"Hdpe Water Pipe 1""",Mtr,plumbing
+112,"Hdpe Water Pipe 1/2""",Mtr,plumbing
+113,"Hdpe Water Pipe 3/4""",Mtr,plumbing
+114,"Equal Elbow 1"" PVC",Nos,plumbing
+115,"Equal Elbow 1/2""  PVC",Nos,plumbing
+116,"Equal Elbow 3/4""  PVC",Nos,plumbing
+117,"Male Thread Adaptor 1""",Nos,plumbing
+118,"Male Thread Adaptor Brass  1/2""",Nos,plumbing
+119,"Male Thread Adaptor Brass 3/4""",Nos,plumbing
+120,"Female Thread Adaptor Brass 1""",Nos,plumbing
+121,"Female Thread Adaptor Brass 1/2""",Nos,plumbing
+122,"Female Thread Adaptor Brass 3/4""",Nos,plumbing
+123,"End Cap 3/4"" GI",Nos,plumbing
+124,"Male Thread Elbow 1""",Nos,plumbing
+125,"Male Thread Elbow 1/2""",Nos,plumbing
+126,"Male Thread Elbow 3/4""",Nos,plumbing
+127,"Female Thread Adaptor Elbow 1""",Nos,plumbing
+128,"Female Thread Adaptor Elbow 1/2""",Nos,plumbing
+129,"Female Thread Adaptor Elbow 3/4""",Nos,plumbing
+130,"Female Thread Adaptor 1""",Nos,plumbing
+131,"Female Thread Adaptor 1/2""",Nos,plumbing
+132,"Female Thread Adaptor 3/4""",Nos,plumbing
+133,"Male Adaptor 1""",Nos,plumbing
+134,"Male Thread Adaptor 1/2""",Nos,plumbing
+135,"Male Thread Adaptor 3/4""",Nos,plumbing
+136,"Male Thread Adaptor Tee 1""",Nos,plumbing
+137,"Male Thread Adaptor Tee 1/2""",Nos,plumbing
+138,"Male Thread Adaptor Tee 3/4""",Nos,plumbing
+139,"Male Thread Adaptor Elbow Brass 1""",Nos,plumbing
+140,"Male Thread Adaptor Elbow Brass 1/2""",Nos,plumbing
+141,"Male Thread Adaptor Elbow Brass 3/4""",Nos,plumbing
+142,"Female Thread Adaptor Elbow Brass 1""",Nos,plumbing
+143,"Fmale Thread Adaptor Elbow Brass 1/2""",Nos,plumbing
+144,"Female Thread Adaptor Elbow Brass 3/4""",Nos,plumbing
+145,Toliet Seat Cover,Nos,plumbing
+146,"Angel Valve 1/2"" One Way",Nos,plumbing
+147,"Angel Valve 1/2"" Two Way",Nos,plumbing
+148,Bath Mixture Two Way,Nos,plumbing
+149,"Bib Cock Long Body 1/2"" Steel",Nos,plumbing
+150,"Bib Cock Short Body 1/2"" Steel",Nos,plumbing
+151,"Gate Valve 3/4""  Gun Metal",Nos,plumbing
+152,"Gate Valve 1""  Gun Metal",Nos,plumbing
+153,Water Tank 2000 Ltrs,Nos,plumbing
+154,Water Tank 1000 Ltrs,Nos,plumbing
+155,Flexible Pipe With Jet,Nos,plumbing
+156,Flush Tank  with pipe,Nos,plumbing
+157,Flush Tank Accessories,Nos,plumbing
+158,Flush Tank Connecting Pipe,Set,plumbing
+159,Water Pump  monoblock 1.5 HP,Nos,plumbing
+160,7.5 Hp Motor Pump Submersible,Nos,plumbing
+161,M-seal,Pkts,plumbing
+162,"Coupler 1/2""",Nos,plumbing
+163,Carbon Bush For Hand Cutter Machine,Nos,plumbing
+164,Carbon Bush For Hand Grinding Machine,Nos,plumbing
+165,Carbon Bush For Hand Pipe Cutter Machine,Kg,plumbing
+166,Bench Grinding Disc,Nos,plumbing
+167,"Grinding Disc 4""",Nos,plumbing
+168,"Flat File 8""",Nos,plumbing
+169,"Flat File 10""",Nos,plumbing
+170,"Half Round File 8""",Nos,plumbing
+171,"Half Round File 10""",Nos,plumbing
+172,"Round File 8""",Nos,plumbing
+173,"Round File 10""",Nos,plumbing
+174,"Adjustable Spanner 12""",Nos,plumbing
+175,Bench Vise Big Size no-6,Nos,plumbing
+176,Anvil 30 KG,Nos,plumbing
+177,Hammer 10kg,Nos,plumbing
+178,Hammer 5kg,Nos,plumbing
+179,Hammer 2kg,Nos,plumbing
+180,Grinding Safety Goggles,Nos,plumbing
+181,Hand Gloves Heat Resistant,Nos,plumbing
+182,Leather Apron,Nos,plumbing
+183,Welding Holder Heavy Duty 600 A,Nos,plumbing
+184,Screw Driver Complete Set,Nos,plumbing
+185,Measuring Tape 30 Mtr,Nos,plumbing
+186,Measuring Tape 5 Mtr,Nos,plumbing
+187,"Metal Sheet Cutting Scissor 14""",Nos,plumbing
+188,"Hand Screen (9x16"")",Nos,plumbing
+189,Spaner Combination Set (9mm To 27 Mm),Nos,plumbing
+190,"Goti Set socket of 24PC,1/2"" SQ Drive BMC pack",Nos,plumbing
+191,Welding Helmet Automatic Darking 92x42MM,Nos,plumbing
+192,"Black Tongue Smith  11.61"" Steel",Nos,plumbing
+193,"Wire Brush 1X9""",Nos,plumbing
+194,Heavy Welding Cable,Nos,plumbing
+195,Earth Clamp 600A,Nos,plumbing
+196,Tube Light Set 2 Feet Led Light fitting,Nos,plumbing
+197,Tube Light Single Fluorescent 2 Feet Long,Nos,plumbing
+198,Cfl 20w Thread Type,Nos,plumbing
+199,Bulk Light (Holder Thread Type),Nos,plumbing
+200,Mercurry  Security light fittings 250w,Nos,plumbing
+201,Mercury Lamp 250w,Nos,plumbing
+202,Flood Light  LED 200W,Nos,plumbing
+203,"Casing Caping 1.5""",Mtr,plumbing
+204,"Pvc U Clip 1/2""",Pkt,plumbing
+205,"Pvc U Clip 3/4""",Pkt,plumbing
+206,"Pvc U Clip 1""",Pkt,plumbing
+207,"Steel Screw 1""",Kgs,plumbing
+208,"Steel Screw 1 1/2""",Kgs,plumbing
+209,"Steel Screw 2""",Kgs,plumbing
+210,Machine Screw All Type,Kgs,plumbing
+211,PVC Gang Box (150x150x70)with 5/15 Amps  Switch socket combination,Nos,plumbing
+212,Combination Pliers,Nos,plumbing
+213,Allen Key Set Taparia,Set,plumbing
+1,Bed Folding Wooden,Nos,furniture
+2,Office Executive Chair,Nos,furniture
+3,Table Folding  - medium hospital,Nos,furniture
+4,Centre Table,Nos,furniture
+5,Dining Table (Foldable Plastic),Nos,furniture
+6,Dining Chair Plastic (Blue/Black Colour),Nos,furniture
+7,Cupboard Collaspible Plastic,Nos,furniture
+8,Dining Hall Plastic Chair,Nos,furniture
+9,Folding portable tripod stool,Nos,furniture
+10,Folding bed,Nos,furniture
+11,Sofa Set 5 Seater,Nos,furniture
+12,Plastic chair,Nos,furniture
+13,Table Plastic,Nos,furniture
+14,Easy Chair,Nos,furniture
+15,Dinning Table Plastic Folding,Nos,furniture
+16,Steel Stool Revolving Planet,Nos,furniture
+17,Chair Black,Nos,furniture
+18,Office Chair Revolving,Nos,furniture
+19,Office Chair,Nos,furniture
+20,Chair with Red Cushion,Nos,furniture
+21,Cots folding,Nos,furniture
+22,Cupboard,Nos,furniture
+23,Revolving chair,Nos,furniture
+24,Plastic chair with armrest,Nos,furniture
+25,Normal plastic chair with arms,Nos,furniture
+26,Table Plastic 3 Ft x 6 Ft,Nos,furniture
+27,Dinning Chair Plastic,Nos,furniture
+28,Folding Bed 6 x 4 feet,Nos,furniture
+29,Bed Single (6x4ft),Nos,furniture
+30,Bed side Locker three Drawer Metal,Nos,furniture
+31,Office Desk,Nos,furniture
+32,Table Steel with Drawer,Nos,furniture
+33,Sofa Five Seater,Nos,furniture
+34,Cap and Coat Stand,Nos,furniture
+35,Steel Stool,Nos,furniture
+36,Sofa Two Seater Set,Nos,furniture
+37,Office Table wooden  for Staff Officer,Nos,furniture
+38,Centre Table with Glass (2½ x 4ft),Nos,furniture
+39,Display Board Soft (4 x 3ft) (Notice Board),Nos,furniture
+40,Bed (6 x 3½ ft) (Foldable Utilty Based),Nos,furniture
+41,Dinning Chair Plastic (Blue or Black Color),Nos,furniture
+42,Dinning Hall Table (Foldable) (Plastic),Nos,furniture
+43,Mattress (6x3),Nos,furniture
+44,Bed,Nos,furniture
+45,Table Lamp,Nos,furniture
+46,Office Chair Executive,Nos,furniture
+47,Chair Revolving,Nos,furniture
+1,Hand Sanitizer  of 5 Ltr Bottle,Bottle, 
+2,Weighing Machine 250 Kgs,Nos,welfare
+3,Plastic Bottle 20 ltr for Water dispenser,Nos,welfare
+4,Food Warmer Electric (4 Ctns each of  15 Ltr Capacity),Nos,welfare
+5,Diesel Stove,Nos,welfare
+6,Geyser (25L),Nos,welfare
+7,Deep Freezer 500 Ltrs,Nos,welfare
+8,Washing Machine 8.5 Kg (LG),Nos,welfare
+9,Electric Cook Top Large,Nos,welfare
+10,Electric Cook Top Medium,Nos,welfare
+11,Electric Buffet set of 08,Nos,welfare
+12,Food Warmer electric (4 containers each of 15 ltrs capacity),Nos,welfare
+13,Hydration Pack 2 ltr,Nos,welfare
+14,Knee & Elbow Pad,Nos,welfare
+15,Standing Fan,Nos,welfare
+16,Mug Plastic,Nos,welfare
+17,Quarter Plate,Nos,welfare
+18,Bowl Acrylic,Nos,welfare
+19,Spoon Seving,Nos,welfare
+20,Table Spoon Steel,Nos,welfare
+21,Dessert Spoon,Nos,welfare
+22,Table Fork,Nos,welfare
+23,Serving Bowl,Nos,welfare
+24,Water Dispenser with refirigerator 500w,Nos,welfare
+25,Bucket plastic 16 Ltrs,Nos,welfare
+26,Dessert Fork Spoon,Nos,welfare
+27,Full Plate Bona China,Nos,welfare
+28,Harmonium,Nos,welfare
+29,Hot Casseroles,Nos,welfare
+30,Kaddu Kas,Nos,welfare
+31,Kitchen Knife Set,Nos,welfare
+32,Wet grinder 2 Ltr 240W,Nos,welfare
+33,Juicer Mixer Grinder(900 W),Nos,welfare
+34,Induction Cooker 1800W,Nos,welfare
+35,20 Ltrs Solo Micro Wave Ovan 700W,Nos,welfare
+36,Full Plate (Bone China),Nos,welfare
+37,Electric Food Warmer with legs and castor wheels,Nos,welfare
+38,Deep freezer 480L,Nos,welfare
+39,Plastic Mug 1 Ltr,Nos,welfare
+40,Pillow,Nos,welfare
+41,Plastic Bucket 20Ltrs,Nos,welfare
+42,Electric Iron Large,Nos,welfare
+43,Wall Clock,Nos,welfare
+44,Geyser 10 Ltr,Nos,welfare
+45,TV LED 55 Inch,Nos,welfare
+46,Plastic Bottle 20 Ltr for Water Dispenser,Nos,welfare
+47,Sound System,Set,welfare
+48,"TV LED 49""",Nos,welfare
+49,Mattress with Pillow,Nos,welfare
+50,Orthopedic Mattress,Nos,welfare
+51,White Bed sheet,Nos,welfare
+52,Locker Steel,Nos,welfare
+53,Steel Almirah Small,Nos,welfare
+54,Steel Armirah 1280x60x430mm w/o locker,Nos,welfare
+55,"Almirah steel large size 78""x36""x14""",Nos,welfare
+56,Almirah steel ( Small),Nos,welfare
+57,Almirah Wooden(5x3x1.5),Nos,welfare
+58,Dining Hall Plastic Table,Nos,welfare
+59,Dining Hall Plastic Chair,Nos,welfare
+60,Chair Plastic with arms,Nos,welfare
+61,Locker Steel (2½ x 1½ x 6ft Approx),Nos,welfare
+62,Storage Cabinet Metal,Nos,welfare
+63,Steel Almirah 6 Feet,Nos,welfare
+64,In and Out Tray for Dak,Nos,welfare
+65,"Mirror (set of 3 ft, 4 ft, 6 Ft each)",Set,welfare
+66,"Mirror 16 "" X 20 """,Nos,welfare
+67,Bed Side table Lamp,Nos,welfare
+68,Locker,Nos,welfare
+69,Water Lifting Motor 5HP,Nos,welfare
+70,Hydraulic Door  Closer,Nos,welfare
+71,ULV Fogger machine,Nos,welfare
+72,Loudspeakers,Nos,welfare
+73,Handheld searchlights,Nos,welfare
+74,Spray Machine shoulder mounted,Nos,welfare
+75,Office Chair Revolving (Mesh Type),Nos,welfare
+76,Table Light,Nos,welfare
+77,Three point siling for Rifle,Nos,welfare
+78,Ultrasonic Rat Repellant,Nos,welfare
+79,Bathroom Mat,Nos,welfare
+80,Industrial Cooler (0.5 HP motor and 150 Ltr water capacity),Nos,welfare
+81,Paper shredder machine,Nos,welfare
+82,Luminous Ecovolt 1050 Inverter with EC 18036 180Ah Tubular Battery,Nos,welfare
+83,Carpet 4'x6',Nos,welfare
+84,Fly Insect Killer (2 Rod),Nos,welfare
+85,Insect Killer Machine (Small),Nos,welfare
+86,Door Mat 60 x 40 CM,Nos,welfare
+87,Wiper manual with handle 12 Inch,Nos,welfare
+88,Green Net,Mtrs,welfare
+89,Curtain Cloth 117 X 229 CM,Mtrs,welfare
+90,Dustbin plastic 50 Ltr,Nos,welfare
+91,Fibre Glass Shield Polycarbonate,Nos,welfare
+92,Knee Guard,Nos,welfare
+93,Elbow Guard,Nos,welfare
+94,Mattress Cover,Nos,welfare
+95,Water Camper 20 Ltr,Nos,welfare
+96,Refrigerator (450 Ltr),Nos,welfare
+97,Deep Freezer (500 ltrs),Nos,welfare
+98,Gyser (25 Ltr),Nos,welfare
+99,Projector,Nos,welfare
+100,Computer Desktop i5,Nos,welfare
+101,Grass cutting Machine,Nos,welfare
+102,Split AC 1.5 Ton with Duct,Nos,welfare
+103,Venus Instant Geyser ( 1 Ltr) without Pressure,Nos,welfare
+104,Pedestal Fan 400mm,Nos,welfare
+105,Stabilizer 2.5 KW,Nos,welfare
+106,Small wall fan 600mm,Nos,welfare
+107,Padestal Fan 1200mm,Nos,welfare
+108,Thermometer,Nos,welfare

@@ -27,11 +27,50 @@ const theme = createTheme({
 });
 
 export default function SignUp() {
-  //TODO: template code - needs to be removed
-  const [age, setAge] = React.useState("");
+  // State variables
+  const [genericName, setGenericName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lppDate, setLppDate] = useState(null); // Assuming date is managed as an object
+  const [qtyMsn, setQtyMsn] = useState("");
+  const [qtyUnsv, setQtyUnsv] = useState("");
+  const [qtyReqd, setQtyReqd] = useState("");
 
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  // Handle change functions
+  const handleGenericNameChange = (event) => {
+    setGenericName(event.target.value);
+  };
+
+  const handleFirstNameChange = (event) => {
+    setFirstName(event.target.value);
+  };
+
+  const handleLppDateChange = (date) => {
+    setLppDate(date);
+  };
+
+  const handleQtyMsnChange = (event) => {
+    setQtyMsn(event.target.value);
+  };
+
+  const handleQtyUnsvChange = (event) => {
+    setQtyUnsv(event.target.value);
+  };
+
+  const handleQtyReqdChange = (event) => {
+    setQtyReqd(event.target.value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Handle form submission, e.g., send the data to an API or display it
+    console.log({
+      genericName,
+      firstName,
+      lppDate,
+      qtyMsn,
+      qtyUnsv,
+      qtyReqd,
+    });
   };
 
   return (
@@ -52,7 +91,12 @@ export default function SignUp() {
           <Typography component="h1" variant="body1">
             Please fill out the form below
           </Typography>
-          <Box component="form" noValidate sx={{ mt: 3 }}>
+          <Box
+            component="form"
+            noValidate
+            sx={{ mt: 3 }}
+            onSubmit={handleSubmit}
+          >
             <Grid container spacing={1}>
               <Grid item xs={12} md={9} container spacing={3}>
                 <Grid item xs={12} sm={6}>
@@ -63,9 +107,9 @@ export default function SignUp() {
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={age}
+                      value={genericName}
                       label="Select Generic Name"
-                      onChange={handleChange}
+                      onChange={handleGenericNameChange}
                     >
                       <MenuItem value={10}>Ten</MenuItem>
                       <MenuItem value={20}>Twenty</MenuItem>
@@ -81,10 +125,10 @@ export default function SignUp() {
                     <Select
                       labelId="demo-simple-select-label"
                       id="demo-simple-select"
-                      value={age}
+                      value={genericName}
                       label=""
                       disabled
-                      onChange={handleChange}
+                      onChange={handleGenericNameChange}
                     >
                       <MenuItem value={10}>Ten</MenuItem>
                       <MenuItem value={20}>Twenty</MenuItem>
@@ -102,100 +146,103 @@ export default function SignUp() {
                     id="firstName"
                     label="LPP"
                     autoFocus
+                    value={firstName}
+                    onChange={handleFirstNameChange}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <BasicDatePicker label="LPP Date"/>
+                  <BasicDatePicker
+                    label="LPP Date"
+                    value={lppDate}
+                    onChange={handleLppDateChange}
+                  />
                 </Grid>
-                <Grid item container spacing={2} xs={12}>
+                <Grid item container sx={{marginBottom: 2}} spacing={2} xs={12}>
                   <Grid item xs={12} sm={4}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Qty in MSN"
-                    name="email"
-                    type="number"
-                    autoComplete="email"
-                  />
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="qtyMsn"
+                      label="Qty in MSN"
+                      name="qtyMsn"
+                      type="number"
+                      value={qtyMsn}
+                      onChange={handleQtyMsnChange}
+                    />
                   </Grid>
                   <Grid item xs={12} sm={4}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Qty in UNSV"
-                    name="email"
-                    type="number"
-                    autoComplete="email"
-                  />
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="qtyUnsv"
+                      label="Qty in UNSV"
+                      name="qtyUnsv"
+                      type="number"
+                      value={qtyUnsv}
+                      onChange={handleQtyUnsvChange}
+                    />
                   </Grid>
                   <Grid item xs={12} sm={4}>
-                  <TextField
-                    variant="outlined"
-                    required
-                    fullWidth
-                    id="email"
-                    label="Qty Reqd."
-                    name="email"
-                    type="number"
-                    autoComplete="email"
-                  />
+                    <TextField
+                      variant="outlined"
+                      required
+                      fullWidth
+                      id="qtyReqd"
+                      label="Qty Reqd."
+                      name="qtyReqd"
+                      type="number"
+                      value={qtyReqd}
+                      onChange={handleQtyReqdChange}
+                    />
                   </Grid>
                 </Grid>
-                {/* <Grid item xs={12}>
-                <TextField
-                  variant="outlined"
-                  required
+              </Grid>
+              <Grid
+                item
+                xs={12}
+                md={3}
+                justifyContent={"space-around"}
+                container
+                spacing={1}
+              >
+                <ImageBox />
+              </Grid>
+            </Grid>
+            <Grid container spacing={2}>
+              <Grid item xs={4} md={4}>
+                <Button
+                  type="submit"
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="text"
-                  id="password"
-                  autoComplete="current-password"
-                />
-              </Grid> */}
-              </Grid>
-              <Grid item xs={12} md={3} justifyContent={"space-around"} container spacing={1}>
-                <ImageBox/>
-                </Grid>
-              </Grid>
-              <Grid container spacing={2}>
-              <Grid item xs={4} md={4}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Preview List
-              </Button>
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Preview List
+                </Button>
               </Grid>
               <Grid item xs={4} md={4}>
-              <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Generate List
-              </Button>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Generate List
+                </Button>
               </Grid>
               <Grid item xs={4} md={4}>
-              <Button
-                color="primary"
-                type="submit"
-                fullWidth
-                variant="contained"
-                sx={{ mt: 3, mb: 2 }}
-              >
-                Print
-              </Button>
+                <Button
+                  color="primary"
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  sx={{ mt: 3, mb: 2 }}
+                >
+                  Print
+                </Button>
               </Grid>
-              </Grid>
-              
+            </Grid>
           </Box>
         </Box>
         <Box mt={5}></Box>

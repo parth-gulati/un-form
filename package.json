@@ -34,7 +34,6 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://parth-gulati.github.io/indian-army-requirement-form",
   "browserslist": {
     "production": [
       ">0.2%",

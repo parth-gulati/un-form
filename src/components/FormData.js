@@ -1,21 +1,26 @@
-import React, { useState } from "react";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import React, { useState, useEffect } from "react";
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Grid,
+  Box,
+  Typography,
+  Container,
+  InputLabel,
+  MenuItem,
+  FormControl,
+  Select,
+  Dialog,
+  DialogTitle,
+  DialogContent,
+} from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import DynamicFormIcon from "@mui/icons-material/DynamicForm";
-import InputLabel from "@mui/material/InputLabel";
-import MenuItem from "@mui/material/MenuItem";
-import FormControl from "@mui/material/FormControl";
-import Select from "@mui/material/Select";
 import ImageBox from "./ImageBox";
 import BasicDatePicker from "./BasicDatePicker";
-import { useEffect } from "react";
+import Modal from "./Modal"; // Assuming this is a dynamic table component
 
 const theme = createTheme({
   palette: {
@@ -37,20 +42,42 @@ export default function FormData({ csvData }) {
   const [qtyUnsv, setQtyUnsv] = useState("");
   const [qtyReqd, setQtyReqd] = useState("");
   const [genericOptions, setGenericOptions] = useState([]);
+  const [open, setOpen] = useState(false);
+  const [modalData, setModalData] = useState(() => {
+    // Initialize state from localStorage or fallback to an empty array
+    const savedData = localStorage.getItem("modalData");
+    return savedData ? JSON.parse(savedData) : [];
+  });
+
+  // Update local storage whenever modalData changes
+  useEffect(() => {
+    localStorage.setItem("modalData", JSON.stringify(modalData));
+  }, [modalData]);
 
   useEffect(() => {
     if (csvData && csvData.length > 0) {
-      setGenericOptions([
-        ...new Set(
-          csvData.map((item) => item?.CATEGORY)
-        ),
-      ]);
+      setGenericOptions([...new Set(csvData.map((item) => item?.CATEGORY))]);
     }
   }, [csvData]);
+
+  const handleDelete = (index) => {
+    // Remove item from modalData
+    const newData = [...modalData];
+    newData.splice(index, 1);
+    setModalData(newData);
+  };
 
   // Handle change functions
   const handleGenericNameChange = (event) => {
     setGenericName(event.target.value);
+  };
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const handleNomenclatureNameChange = (event) => {
@@ -77,9 +104,32 @@ export default function FormData({ csvData }) {
     setQtyReqd(event.target.value);
   };
 
+  // Add to List Function
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission, e.g., send the data to an API or display it
+
+    // Prepare the new data entry
+    const newData = {
+      GenericName: capitalizeFirstLetter(genericName),
+      NomenclatureName: nomenclatureName,
+      FirstName: firstName,
+      LppDate: lppDate ? lppDate.toLocaleDateString() : "",
+      QtyMsn: qtyMsn,
+      QtyUnsv: qtyUnsv,
+      QtyReqd: qtyReqd,
+    };
+
+    // Update modalData with the new entry
+    setModalData((prevData) => [...prevData, newData]);
+
+    // Optionally reset form fields after adding to the list
+    setGenericName(null);
+    setNomenclatureName(null);
+    setFirstName("");
+    setLppDate(null);
+    setQtyMsn("");
+    setQtyUnsv("");
+    setQtyReqd("");
   };
 
   return (
@@ -120,13 +170,11 @@ export default function FormData({ csvData }) {
                       label="Select Generic Name"
                       onChange={handleGenericNameChange}
                     >
-                      {genericOptions.map((value, index) => {
-                        return (
-                          <MenuItem key={index} value={value}>
-                            {capitalizeFirstLetter(value)}
-                          </MenuItem>
-                        );
-                      })}
+                      {genericOptions.map((value, index) => (
+                        <MenuItem key={index} value={value}>
+                          {capitalizeFirstLetter(value)}
+                        </MenuItem>
+                      ))}
                     </Select>
                   </FormControl>
                 </Grid>
@@ -140,18 +188,17 @@ export default function FormData({ csvData }) {
                       id="demo-simple-select"
                       value={nomenclatureName}
                       label=""
-                      disabled={genericName==null || genericName === ""}
+                      disabled={genericName == null || genericName === ""}
                       onChange={handleNomenclatureNameChange}
                     >
-                      {csvData && csvData
-                        .filter((item) => (item.CATEGORY === genericName))
-                        .map((value, index) => {
-                          return (
+                      {csvData &&
+                        csvData
+                          .filter((item) => item.CATEGORY === genericName)
+                          .map((value, index) => (
                             <MenuItem key={value.ID} value={value.NAME}>
                               {value.NAME}
                             </MenuItem>
-                          );
-                        })}
+                          ))}
                     </Select>
                   </FormControl>
                 </Grid>
@@ -243,23 +290,35 @@ export default function FormData({ csvData }) {
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}
                 >
-                  Preview List
+                  Add to List
                 </Button>
               </Grid>
               <Grid item xs={4} md={4}>
                 <Button
-                  type="submit"
                   fullWidth
                   variant="contained"
+                  onClick={handleClickOpen}
                   sx={{ mt: 3, mb: 2 }}
                 >
-                  Generate List
+                  Preview List
                 </Button>
+                {/* Dialog with dynamic table */}
+                <Dialog
+                  open={open}
+                  onClose={handleClose}
+                  maxWidth="md"
+                  fullWidth
+                >
+                  <DialogTitle>Preview</DialogTitle>
+                  <DialogContent>
+                    {/* Pass modalData to the Modal component */}
+                    <Modal data={modalData} onDelete={handleDelete} />
+                  </DialogContent>
+                </Dialog>
               </Grid>
               <Grid item xs={4} md={4}>
                 <Button
                   color="primary"
-                  type="submit"
                   fullWidth
                   variant="contained"
                   sx={{ mt: 3, mb: 2 }}

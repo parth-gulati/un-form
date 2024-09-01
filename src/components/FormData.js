@@ -19,11 +19,7 @@ import {
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import ImageBox from "./ImageBox";
-import BasicDatePicker from "./BasicDatePicker";
 import Modal from "./Modal"; // Assuming this is a dynamic table component
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import dayjs from "dayjs";
 
 const theme = createTheme({
   palette: {
@@ -39,16 +35,18 @@ export default function FormData({ csvData }) {
   // State variables
   const [genericName, setGenericName] = useState(null);
   const [nomenclatureName, setNomenclatureName] = useState(null);
-  const [nomenclatureID, setNomenclatureID] = useState(-1)
   const [LPP, setLPP] = useState("");
   const [lppDate, setLppDate] = useState(null); // Assuming date is managed as an object
   const [qtyMsn, setQtyMsn] = useState("");
   const [qtyUnsv, setQtyUnsv] = useState("");
+  const [sNo, setSNo] = useState(null);
   const [qtyReqd, setQtyReqd] = useState("");
   const [genericOptions, setGenericOptions] = useState([]);
   const [open, setOpen] = useState(false);
-  const [rowData, setRowData] = useState({});
   const [unitName, setUnitName] = useState("");
+  const [AU, setAU] = useState("");
+  const [GST, setGST] = useState(null);
+  const [newRate, setNewRate] = useState(null);
   const [modalData, setModalData] = useState(() => {
     // Initialize state from localStorage or fallback to an empty array
     const savedData = localStorage.getItem("modalData");
@@ -79,15 +77,21 @@ export default function FormData({ csvData }) {
 
   useEffect(() => {
     if (csvData && csvData.length > 0 && genericName && nomenclatureName) {
-      const temp = csvData.filter(
-        (item) =>
-          item.CATEGORY === genericName && item.NAME === nomenclatureName
-      );
-      setRowData(temp);
+      const temp = csvData.filter((item) => {
+        return item.NAME === nomenclatureName;
+      });
+      setLPP(temp[0]["LPP"]);
+      setAU(temp[0]["AU"]);
+      setSNo(temp[0]["ID"]);
+      setNewRate(temp[0]["NEW_RATE"]);
+      setLppDate(temp[0]["YEAR"]);
+      let sanitizedRate = temp[0]["NEW_RATE"].replace(/,/g, ""); // Remove commas
+      let rate = parseFloat(sanitizedRate);
 
-      console.log(rowData)
+      setGST(Number(rate * 0.18).toFixed(2));
+      //setAU(temp[0][''])
     }
-  }, [nomenclatureName]);
+  }, [nomenclatureName, genericName, csvData]);
 
   const handleDelete = (index) => {
     // Remove item from modalData
@@ -99,7 +103,7 @@ export default function FormData({ csvData }) {
   // Handle change functions
   const handleGenericNameChange = (event) => {
     setGenericName(event.target.value);
-    console.log(event.target)
+    console.log(event.target);
     setErrors((prevErrors) => ({ ...prevErrors, genericName: null })); // Clear errors
   };
 
@@ -118,9 +122,9 @@ export default function FormData({ csvData }) {
     setErrors((prevErrors) => ({ ...prevErrors, unitName: null })); // Clear errors
   };
 
-  const handleLppDateChange = (date) => {
+  const handleLppDateChange = (event) => {
     // Set the date if it's a valid dayjs object, otherwise, set to null
-    setLppDate(date && dayjs.isDayjs(date) ? date : null);
+    setLppDate(event.target.value);
     setErrors((prevErrors) => ({ ...prevErrors, lppDate: null })); // Clear errors
   };
 
@@ -132,6 +136,16 @@ export default function FormData({ csvData }) {
   const handleQtyUnsvChange = (event) => {
     setQtyUnsv(event.target.value);
     setErrors((prevErrors) => ({ ...prevErrors, qtyUnsv: null })); // Clear errors
+  };
+
+  const calculateTotalCost = (quantity, rate, gst = 1.18) => {
+    // Ensure quantity and rate are numbers
+    let sanitizedRate = rate.replace(/,/g, ""); // Remove commas
+    rate = parseFloat(sanitizedRate);
+
+    return Number(parseFloat(quantity) * parseFloat(rate) * gst).toFixed(
+      2
+    );
   };
 
   const handleQtyReqdChange = (event) => {
@@ -148,7 +162,7 @@ export default function FormData({ csvData }) {
     if (!nomenclatureName)
       newErrors.nomenclatureName = "Nomenclature Name is required.";
     if (!LPP) newErrors.LPP = "LPP is required.";
-    if (!lppDate || !dayjs.isDayjs(lppDate) || !lppDate.isValid()) {
+    if (!lppDate) {
       newErrors.lppDate = "LPP Date is required and must be a valid date.";
     }
     if (!qtyMsn) newErrors.qtyMsn = "Quantity in MSN is required.";
@@ -164,14 +178,19 @@ export default function FormData({ csvData }) {
 
     // Prepare the new data entry
     const newData = {
+      SNo: sNo,
+      UnitName: unitName,
       GenericName: capitalizeFirstLetter(genericName),
       NomenclatureName: nomenclatureName,
       LPP: LPP,
-      LppDate: lppDate ? lppDate.format("YYYY-MM-DD") : "", // Format date using dayjs
+      LppDate: lppDate, // Format date using dayjs
       QtyMsn: qtyMsn,
       QtyUnsv: qtyUnsv,
       QtyReqd: qtyReqd,
-      UnitName: unitName,
+      AU: AU,
+      GST: GST,
+      newRate: newRate,
+      TotalCost: calculateTotalCost(qtyReqd, newRate, 1.18),
     };
 
     console.log("Adding new data to list", newData); // Debugging
@@ -187,7 +206,7 @@ export default function FormData({ csvData }) {
     setGenericName(null);
     setNomenclatureName(null);
     setLPP("");
-    setLppDate(dayjs()); // Reset to current date or default value
+    setLppDate(""); // Reset to current date or default value
     setQtyMsn("");
     setQtyUnsv("");
     setQtyReqd("");
@@ -298,7 +317,6 @@ export default function FormData({ csvData }) {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
-                    autoComplete="fname"
                     name="LPP"
                     variant="outlined"
                     required
@@ -314,17 +332,19 @@ export default function FormData({ csvData }) {
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <LocalizationProvider dateAdapter={AdapterDayjs}>
-                    <BasicDatePicker
-                      defaultValue={null}
-                      label="LPP Date"
-                      disabled
-                      value={lppDate}
-                      error={!!errors.lppDate}
-                      helperText={errors.lppDate}
-                      onChange={handleLppDateChange}
-                    />
-                  </LocalizationProvider>
+                  <TextField
+                    name="lppdate"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="lppdate"
+                    label={!lppDate ? "LPP Date" : ""}
+                    disabled
+                    value={lppDate ? String(lppDate) : lppDate}
+                    onChange={handleLppDateChange}
+                    error={!!errors.lppDate}
+                    helperText={errors.lppDate}
+                  />
                 </Grid>
                 <Grid
                   item

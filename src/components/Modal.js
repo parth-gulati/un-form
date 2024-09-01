@@ -53,11 +53,12 @@ function createDataFromModal(modalData) {
     newRate: formatNumberToIndian(item.newRate || ''),
     gstPercent: '18', // Leave blank as per your requirement
     gstAmt: formatNumberToIndian(item.GST || ''), // Leave blank as per your requirement
-    costPerItem: formatNumberToIndian(parseFloat(item.newRate.replace(/,/g, '')).toFixed(2)), // Remove commas and format
+    costPerItem: formatNumberToIndian(parseFloat((item.newRate || '0').replace(/,/g, '')).toFixed(2)), // Ensure it's a string and format
     totalCost: formatNumberToIndian(item.TotalCost || ''),
     photo: '', // Leave blank as per your requirement
   }));
 }
+
 
 const Modal = ({ data, onDelete }) => {
   const rows = createDataFromModal(data);

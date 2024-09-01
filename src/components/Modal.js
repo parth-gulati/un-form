@@ -18,7 +18,6 @@ import DeleteIcon from "@mui/icons-material/Delete";
 // Utility function to format numbers in Indian number format
 function formatNumberToIndian(num) {
   if (num && !num.includes(',')) {
-    // If the number is not already formatted
     const x = num.toString().split('.');
     let intPart = x[0];
     const decPart = x.length > 1 ? '.' + x[1] : '';
@@ -29,7 +28,7 @@ function formatNumberToIndian(num) {
     }
     return intPart + decPart;
   }
-  return num; // Return as-is if already formatted
+  return num;
 }
 
 function createDataFromModal(modalData) {
@@ -37,7 +36,7 @@ function createDataFromModal(modalData) {
     UnitName: item.UnitName,
     sNo: item.SNo || '',
     GenericName: item.GenericName || '',
-    sec: '', // Leave blank as per your requirement
+    sec: '',
     catPartNo: '',
     nomenclature: item.NomenclatureName || '',
     au: item.AU || '',
@@ -45,19 +44,18 @@ function createDataFromModal(modalData) {
     qtyUnsv: formatNumberToIndian(item.QtyUnsv || ''),
     qtyReqd: formatNumberToIndian(item.QtyReqd || ''),
     lppLcr: formatNumberToIndian(item.LPP || ''),
-    mktSvyRate: '', // Leave blank as per your requirement
+    mktSvyRate: '',
     year: item.LppDate || '',
-    escalationPercent: '', // Leave blank as per your requirement
-    escalationAmt: '', // Leave blank as per your requirement
+    escalationPercent: '',
+    escalationAmt: '',
     newRate: formatNumberToIndian(item.newRate || ''),
-    gstPercent: '18', // Leave blank as per your requirement
-    gstAmt: formatNumberToIndian(item.GST || ''), // Leave blank as per your requirement
-    costPerItem: formatNumberToIndian(item.costPerItem || ''), // Ensure it's a string and format
+    gstPercent: '18',
+    gstAmt: formatNumberToIndian(item.GST || ''),
+    costPerItem: formatNumberToIndian(item.costPerItem || ''),
     totalCost: formatNumberToIndian(item.TotalCost || ''),
-    photo: '', // Leave blank as per your requirement
+    photo: '',
   }));
 }
-
 
 const Modal = ({ data, onDelete }) => {
   const rows = createDataFromModal(data);
@@ -68,7 +66,7 @@ const Modal = ({ data, onDelete }) => {
   const grandTotal = total + roundOff;
 
   const handlePrint = () => {
-    const printWindow = window.open("", "", "height=842,width=595"); // A4 dimensions in points (height=842, width=595)
+    const printWindow = window.open("", "", "height=842,width=595");
     printWindow.document.write("<html><head><title></title>");
     printWindow.document.write(`
       <style>
@@ -83,14 +81,14 @@ const Modal = ({ data, onDelete }) => {
         table {
           border-collapse: collapse;
           width: 100%;
-          font-size: 10px; /* Adjust font size to fit within A4 */
-          border: 1px solid black; /* Add border to the entire table */
+          font-size: 10px;
+          border: 1px solid black;
         }
         th, td {
-          border: 1px solid black; /* Add border to table cells */
-          padding: 6px; /* Adjust padding for better fit */
+          border: 1px solid black;
+          padding: 6px;
           text-align: left;
-          background-color: #f5f5f5; /* Uniform background color for all cells */
+          background-color: #f5f5f5;
         }
         th {
           background-color: #f5f5f5;
@@ -105,22 +103,22 @@ const Modal = ({ data, onDelete }) => {
         }
         .footer-text {
           position: absolute;
-          bottom: 10mm; /* Stick text to the bottom with 10mm margin */
-          left: 10mm; /* Align to the left */
-          width: calc(100% - 20mm); /* Adjust width to fit within A4 */
-          font-size: 10px; /* Consistent font size */
+          bottom: 10mm;
+          left: 10mm;
+          width: calc(100% - 20mm);
+          font-size: 10px;
         }
         .appendix-text {
           position: absolute;
-          top: 10mm; /* Stick to the top with 10mm margin */
-          right: 10mm; /* Align to the right */
+          top: 10mm;
+          right: 10mm;
           font-size: 12px;
           font-weight: bold;
         }
         @media print {
           @page {
             size: A4;
-            margin: 10mm; /* Standard A4 margin */
+            margin: 10mm;
           }
           body {
             margin: 0;
@@ -129,69 +127,59 @@ const Modal = ({ data, onDelete }) => {
       </style>
     `);
     printWindow.document.write("</head><body>");
-    
-    // Add "Appendix" text at the top right corner
     printWindow.document.write('<div class="appendix-text">Appendix</div>');
-  
     printWindow.document.write(`<h3><u><b>UNIT NAME: ${data.length > 0 ? data[0]['UnitName'] : ''}</b></u></h3>`);
     printWindow.document.write("<h4><u><b>LIST OF ADDITIONALITIES IN RESPECT OF 9 KUMAON INDBATT-XXIV UNIFIL (2ND ROTATION): EX TRADE</b></u></h4>");
-  
-    // Clone the table for printing
+
     const table = document.querySelector("table");
     if (table) {
       const cloneTable = table.cloneNode(true);
       const thead = cloneTable.querySelector("thead");
       const tbody = cloneTable.querySelector("tbody");
-  
-      // Remove the last column from the header, ensuring it is not the "(t)" column
+
       thead.querySelectorAll("tr").forEach(row => {
         if (row.cells.length > 1 && !row.cells[row.cells.length - 1].innerText.includes("(t)")) {
-          row.deleteCell(row.cells.length - 1); // Removes the last column if it's not "(t)"
-        }
-      });
-  
-      // Remove the last column from each row in the body, ensuring it is not the "(t)" column
-      tbody.querySelectorAll("tr").forEach(row => {
-        if (row.cells.length > 1 && !row.cells[row.cells.length - 1].innerText.includes("(t)")) {
-          row.deleteCell(row.cells.length - 1); // Removes the last column if it's not "(t)"
+          row.deleteCell(row.cells.length - 1);
         }
       });
 
-       // Remove the last three rows (Total, Round Off, Grand Total) if they exist
-       const totalRows = tbody.querySelectorAll("tr");
-       if (totalRows.length >= 3) {
-         totalRows[totalRows.length - 1].remove(); // Grand Total
-         totalRows[totalRows.length - 2].remove(); // Round Off
-         totalRows[totalRows.length - 3].remove(); // Total
-       }
-   
-       // Append the total, round off, and grand total rows to the table with proper values
-       const totalRow = document.createElement("tr");
-       totalRow.innerHTML = `
-         <td colspan="18" style="border: 1px solid black; text-align: right;"><b>Total</b></td>
-         <td style="border: 1px solid black; text-align: left;">${formatNumberToIndian(total.toFixed(2))}</td>
-       `;
-       tbody.appendChild(totalRow);
-   
-       const roundOffRow = document.createElement("tr");
-       roundOffRow.innerHTML = `
-         <td colspan="18" style="border: 1px solid black; text-align: right;"><b>Round Off</b></td>
-         <td style="border: 1px solid black; text-align: left;">${formatNumberToIndian(roundOff.toFixed(2))}</td>
-       `;
-       tbody.appendChild(roundOffRow);
-   
-       const grandTotalRow = document.createElement("tr");
-       grandTotalRow.innerHTML = `
-         <td colspan="18" style="border: 1px solid black; text-align: right;"><b>Grand Total</b></td>
-         <td style="border: 1px solid black; text-align: left;">${formatNumberToIndian(grandTotal.toFixed(2))}</td>
-       `;
-       tbody.appendChild(grandTotalRow);
-   
-  
+      tbody.querySelectorAll("tr").forEach(row => {
+        if (row.cells.length > 1 && !row.cells[row.cells.length - 1].innerText.includes("(t)")) {
+          row.deleteCell(row.cells.length - 1);
+        }
+      });
+
+      const totalRows = tbody.querySelectorAll("tr");
+      if (totalRows.length >= 3) {
+        totalRows[totalRows.length - 1].remove();
+        totalRows[totalRows.length - 2].remove();
+        totalRows[totalRows.length - 3].remove();
+      }
+
+      const totalRow = document.createElement("tr");
+      totalRow.innerHTML = `
+        <td colspan="18" style="border: 1px solid black; text-align: right;"><b>Total</b></td>
+        <td style="border: 1px solid black; text-align: left;">${formatNumberToIndian(total.toFixed(2))}</td>
+      `;
+      tbody.appendChild(totalRow);
+
+      const roundOffRow = document.createElement("tr");
+      roundOffRow.innerHTML = `
+        <td colspan="18" style="border: 1px solid black; text-align: right;"><b>Round Off</b></td>
+        <td style="border: 1px solid black; text-align: left;">${formatNumberToIndian(roundOff.toFixed(2))}</td>
+      `;
+      tbody.appendChild(roundOffRow);
+
+      const grandTotalRow = document.createElement("tr");
+      grandTotalRow.innerHTML = `
+        <td colspan="18" style="border: 1px solid black; text-align: right;"><b>Grand Total</b></td>
+        <td style="border: 1px solid black; text-align: left;">${formatNumberToIndian(grandTotal.toFixed(2))}</td>
+      `;
+      tbody.appendChild(grandTotalRow);
+
       printWindow.document.write(cloneTable.outerHTML);
     }
-  
-    // Append additional instructions at the bottom of the page
+
     printWindow.document.write(`
       <div class="footer-text">
         <p>(a) Coln No d,f,g & h will be filled by unit.</p>
@@ -200,13 +188,65 @@ const Modal = ({ data, onDelete }) => {
         <p>(d) Coln t will be filled subsequently as and when photos are available.</p>
       </div>
     `);
-  
+
     printWindow.document.write("</body></html>");
     printWindow.document.close();
     printWindow.focus();
     printWindow.print();
   };
+
+  const handleExportCSV = () => {
+    const csvRows = [];
+    const headers = [
+      ' ', 'S No.', 'Generic Name', 'Sec', 'Cat Part No', 'Nomenclature', 'A/U', 
+      'Qty held in msn A', 'Qty UNSV in Svy Bd', 'Qty Reqd', 'LPP/LCR', 
+      'Mkt Svy Rate', 'Year', 'Escalation per Year %', 'Escalation per Year Amt', 
+      'New rate without GST', 'GST %', 'GST Amt', 'Cost per Item with GST', 'Total Cost', 'Photo'
+    ];
+    csvRows.push(headers.join(','));
   
+    rows.forEach(row => {
+      const rowData = [ '',
+        `"${row.sNo}"`, `"${row.GenericName}"`, `"${row.sec}"`, `"${row.catPartNo}"`, 
+        `"${row.nomenclature}"`, `"${row.au}"`, `"${row.qtyHeld}"`, `"${row.qtyUnsv}"`, 
+        `"${row.qtyReqd}"`, `"${row.lppLcr}"`, `"${row.mktSvyRate}"`, `"${row.year}"`, 
+        `"${row.escalationPercent}"`, `"${row.escalationAmt}"`, `"${row.newRate}"`, 
+        `"${row.gstPercent}"`, `"${row.gstAmt}"`, `"${row.costPerItem}"`, 
+        `"${row.totalCost}"`, `"${row.photo}"`
+      ];
+      csvRows.push(rowData.join(','));
+    });
+  
+    const totalRow = [
+      '"Total"', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 
+      `"${formatNumberToIndian(total.toFixed(2))}"`, ''
+    ];
+    const roundOffRow = [
+      '"Round Off"', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 
+      `"${formatNumberToIndian(roundOff.toFixed(2))}"`, ''
+    ];
+    const grandTotalRow = [
+      '"Grand Total"', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 
+      `"${formatNumberToIndian(grandTotal.toFixed(2))}"`, ''
+    ];
+  
+    csvRows.push(totalRow.join(','));
+    csvRows.push(roundOffRow.join(','));
+    csvRows.push(grandTotalRow.join(','));
+  
+    const csvContent = csvRows.join('\n');
+    const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+    const link = document.createElement("a");
+    const url = URL.createObjectURL(blob);
+    link.setAttribute("href", url);
+    link.setAttribute("download", "table_data.csv");
+    link.style.visibility = 'hidden';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+  
+
   return (
     <>
       <DialogTitle>Unit Name: {data.length > 0 ? data[0]['UnitName'] : ''} </DialogTitle>
@@ -301,7 +341,6 @@ const Modal = ({ data, onDelete }) => {
                   </TableCell>
                 </TableRow>
               ))}
-              {/* Adding total, round off, and grand total rows */}
               <TableRow>
                 <TableCell sx={{ border: '1px solid white' }} colSpan={18} align="right"><b>Total</b></TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>{formatNumberToIndian(total.toFixed(2))}</TableCell>
@@ -321,9 +360,17 @@ const Modal = ({ data, onDelete }) => {
           variant="contained"
           color="primary"
           onClick={handlePrint}
-          sx={{ mt: 3, mb: 2 }}
+          sx={{ mt: 3, mb: 2, mr: 2 }}
         >
           Print
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          onClick={handleExportCSV}
+          sx={{ mt: 3, mb: 2 }}
+        >
+          Export CSV
         </Button>
         {rows.length === 0 && (
           <Typography

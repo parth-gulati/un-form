@@ -21,9 +21,9 @@ import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import ImageBox from "./ImageBox";
 import BasicDatePicker from "./BasicDatePicker";
 import Modal from "./Modal"; // Assuming this is a dynamic table component
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import dayjs from 'dayjs';
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import dayjs from "dayjs";
 
 const theme = createTheme({
   palette: {
@@ -39,13 +39,16 @@ export default function FormData({ csvData }) {
   // State variables
   const [genericName, setGenericName] = useState(null);
   const [nomenclatureName, setNomenclatureName] = useState(null);
-  const [firstName, setFirstName] = useState("");
-  const [lppDate, setLppDate] = useState(dayjs()) // Assuming date is managed as an object
+  const [nomenclatureID, setNomenclatureID] = useState(-1)
+  const [LPP, setLPP] = useState("");
+  const [lppDate, setLppDate] = useState(null); // Assuming date is managed as an object
   const [qtyMsn, setQtyMsn] = useState("");
   const [qtyUnsv, setQtyUnsv] = useState("");
   const [qtyReqd, setQtyReqd] = useState("");
   const [genericOptions, setGenericOptions] = useState([]);
   const [open, setOpen] = useState(false);
+  const [rowData, setRowData] = useState({});
+  const [unitName, setUnitName] = useState("");
   const [modalData, setModalData] = useState(() => {
     // Initialize state from localStorage or fallback to an empty array
     const savedData = localStorage.getItem("modalData");
@@ -74,6 +77,18 @@ export default function FormData({ csvData }) {
     }
   }, [csvData]);
 
+  useEffect(() => {
+    if (csvData && csvData.length > 0 && genericName && nomenclatureName) {
+      const temp = csvData.filter(
+        (item) =>
+          item.CATEGORY === genericName && item.NAME === nomenclatureName
+      );
+      setRowData(temp);
+
+      console.log(rowData)
+    }
+  }, [nomenclatureName]);
+
   const handleDelete = (index) => {
     // Remove item from modalData
     const newData = [...modalData];
@@ -84,6 +99,7 @@ export default function FormData({ csvData }) {
   // Handle change functions
   const handleGenericNameChange = (event) => {
     setGenericName(event.target.value);
+    console.log(event.target)
     setErrors((prevErrors) => ({ ...prevErrors, genericName: null })); // Clear errors
   };
 
@@ -92,9 +108,14 @@ export default function FormData({ csvData }) {
     setErrors((prevErrors) => ({ ...prevErrors, nomenclatureName: null })); // Clear errors
   };
 
-  const handleFirstNameChange = (event) => {
-    setFirstName(event.target.value);
-    setErrors((prevErrors) => ({ ...prevErrors, firstName: null })); // Clear errors
+  const handleLPPChange = (event) => {
+    setLPP(event.target.value);
+    setErrors((prevErrors) => ({ ...prevErrors, LPP: null })); // Clear errors
+  };
+
+  const handleUnitChange = (event) => {
+    setUnitName(event.target.value);
+    setErrors((prevErrors) => ({ ...prevErrors, unitName: null })); // Clear errors
   };
 
   const handleLppDateChange = (date) => {
@@ -120,56 +141,59 @@ export default function FormData({ csvData }) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-  
+
     // Validation check
     const newErrors = {};
     if (!genericName) newErrors.genericName = "Generic Name is required.";
     if (!nomenclatureName)
       newErrors.nomenclatureName = "Nomenclature Name is required.";
-    if (!firstName) newErrors.firstName = "First Name (LPP) is required.";
+    if (!LPP) newErrors.LPP = "LPP is required.";
     if (!lppDate || !dayjs.isDayjs(lppDate) || !lppDate.isValid()) {
       newErrors.lppDate = "LPP Date is required and must be a valid date.";
     }
     if (!qtyMsn) newErrors.qtyMsn = "Quantity in MSN is required.";
     if (!qtyUnsv) newErrors.qtyUnsv = "Quantity in UNSV is required.";
     if (!qtyReqd) newErrors.qtyReqd = "Quantity Required is required.";
-  
+    if (!unitName) newErrors.unitName = "Unit Name is required";
+
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
       console.log("Form validation failed", newErrors); // Debugging
       return;
     }
-  
+
     // Prepare the new data entry
     const newData = {
       GenericName: capitalizeFirstLetter(genericName),
       NomenclatureName: nomenclatureName,
-      FirstName: firstName,
-      LppDate: lppDate ? lppDate.format('YYYY-MM-DD') : "", // Format date using dayjs
+      LPP: LPP,
+      LppDate: lppDate ? lppDate.format("YYYY-MM-DD") : "", // Format date using dayjs
       QtyMsn: qtyMsn,
       QtyUnsv: qtyUnsv,
       QtyReqd: qtyReqd,
+      UnitName: unitName,
     };
-  
+
     console.log("Adding new data to list", newData); // Debugging
-  
+
     // Update modalData with the new entry
     setModalData((prevData) => {
       const updatedData = [...prevData, newData];
       console.log("Updated modalData", updatedData); // Debugging
       return updatedData;
     });
-  
+
     // Optionally reset form fields after adding to the list
     setGenericName(null);
     setNomenclatureName(null);
-    setFirstName("");
+    setLPP("");
     setLppDate(dayjs()); // Reset to current date or default value
     setQtyMsn("");
     setQtyUnsv("");
     setQtyReqd("");
+    setUnitName("");
   };
-  
+
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="s">
@@ -195,6 +219,23 @@ export default function FormData({ csvData }) {
             onSubmit={handleSubmit}
           >
             <Grid container spacing={1}>
+              <Grid item xs={12} md={12} container spacing={3}>
+                <Grid item xs={12} sm={6} sx={{ marginBottom: 2 }}>
+                  <TextField
+                    name="unitName"
+                    variant="outlined"
+                    required
+                    fullWidth
+                    id="unitName"
+                    label="Unit Name"
+                    autoFocus
+                    value={unitName}
+                    onChange={handleUnitChange}
+                    error={!!errors.unitName}
+                    helperText={errors.unitName}
+                  />
+                </Grid>
+              </Grid>
               <Grid item xs={12} md={9} container spacing={3}>
                 <Grid item xs={12} sm={6}>
                   <FormControl fullWidth error={!!errors.genericName}>
@@ -202,6 +243,7 @@ export default function FormData({ csvData }) {
                       Select Generic Name
                     </InputLabel>
                     <Select
+                      required
                       labelId="generic-name-label"
                       id="generic-name-select"
                       value={genericName}
@@ -234,6 +276,7 @@ export default function FormData({ csvData }) {
                       labelId="nomenclature-name-label"
                       id="nomenclature-name-select"
                       value={nomenclatureName}
+                      required
                       label="Select Nomenclature Name"
                       onChange={handleNomenclatureNameChange}
                     >
@@ -256,29 +299,31 @@ export default function FormData({ csvData }) {
                 <Grid item xs={12} sm={6}>
                   <TextField
                     autoComplete="fname"
-                    name="firstName"
+                    name="LPP"
                     variant="outlined"
                     required
                     fullWidth
-                    id="firstName"
+                    id="LPP"
                     label="LPP"
+                    disabled
                     autoFocus
-                    value={firstName}
-                    onChange={handleFirstNameChange}
-                    error={!!errors.firstName}
-                    helperText={errors.firstName}
+                    value={LPP}
+                    onChange={handleLPPChange}
+                    error={!!errors.LPP}
+                    helperText={errors.LPP}
                   />
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <LocalizationProvider dateAdapter={AdapterDayjs}>
-                  <BasicDatePicker
-                    defaultValue={dayjs()}
-                    label="LPP Date"
-                    value={lppDate}
-                    error={!!errors.lppDate}
-                    helperText={errors.lppDate}
-                    onChange={handleLppDateChange}
-                  />
+                    <BasicDatePicker
+                      defaultValue={null}
+                      label="LPP Date"
+                      disabled
+                      value={lppDate}
+                      error={!!errors.lppDate}
+                      helperText={errors.lppDate}
+                      onChange={handleLppDateChange}
+                    />
                   </LocalizationProvider>
                 </Grid>
                 <Grid
@@ -380,7 +425,6 @@ export default function FormData({ csvData }) {
                   </DialogContent>
                 </Dialog>
               </Grid>
-             
             </Grid>
           </Box>
         </Box>

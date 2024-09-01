@@ -148,6 +148,16 @@ export default function FormData({ csvData }) {
     );
   };
 
+  const calculateCostPerItem = (rate, gst = 1.18) => {
+    // Ensure quantity and rate are numbers
+    let sanitizedRate = rate.replace(/,/g, ""); // Remove commas
+    rate = parseFloat(sanitizedRate);
+
+    return Number(parseFloat(rate) * gst).toFixed(
+      2
+    );
+  };
+
   const handleQtyReqdChange = (event) => {
     setQtyReqd(event.target.value);
     setErrors((prevErrors) => ({ ...prevErrors, qtyReqd: null })); // Clear errors
@@ -190,6 +200,7 @@ export default function FormData({ csvData }) {
       AU: AU,
       GST: GST,
       newRate: newRate,
+      costPerItem: calculateCostPerItem(newRate, 1.18),
       TotalCost: calculateTotalCost(qtyReqd, newRate, 1.18),
     };
 

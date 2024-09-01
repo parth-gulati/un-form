@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  Dialog,
   DialogTitle,
   DialogContent,
   TableContainer,
@@ -53,7 +52,7 @@ function createDataFromModal(modalData) {
     newRate: formatNumberToIndian(item.newRate || ''),
     gstPercent: '18', // Leave blank as per your requirement
     gstAmt: formatNumberToIndian(item.GST || ''), // Leave blank as per your requirement
-    costPerItem: formatNumberToIndian(parseFloat((item.newRate || '0').replace(/,/g, '')).toFixed(2)), // Ensure it's a string and format
+    costPerItem: formatNumberToIndian(item.costPerItem || ''), // Ensure it's a string and format
     totalCost: formatNumberToIndian(item.TotalCost || ''),
     photo: '', // Leave blank as per your requirement
   }));

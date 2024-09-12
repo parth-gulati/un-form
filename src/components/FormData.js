@@ -39,13 +39,14 @@ export default function FormData({ csvData }) {
   const [lppDate, setLppDate] = useState(null); // Assuming date is managed as an object
   const [qtyMsn, setQtyMsn] = useState("");
   const [qtyUnsv, setQtyUnsv] = useState("");
-  const [sNo, setSNo] = useState(null);
   const [qtyReqd, setQtyReqd] = useState("");
   const [genericOptions, setGenericOptions] = useState([]);
   const [open, setOpen] = useState(false);
   const [unitName, setUnitName] = useState("");
   const [AU, setAU] = useState("");
   const [GST, setGST] = useState(null);
+  const [escalationPercentage, setEscalationPercentage] = useState("")
+  const [escalationYearAmt, setEscalationYearAmt] = useState("")
   const [newRate, setNewRate] = useState(null);
   const [modalData, setModalData] = useState(() => {
     // Initialize state from localStorage or fallback to an empty array
@@ -82,9 +83,10 @@ export default function FormData({ csvData }) {
       });
       setLPP(temp[0]["LPP"]);
       setAU(temp[0]["AU"]);
-      setSNo(temp[0]["ID"]);
       setNewRate(temp[0]["NEW_RATE"]);
       setLppDate(temp[0]["YEAR"]);
+      setEscalationPercentage(temp[0]["ESCALATION_YR_PERCENT"])
+      setEscalationYearAmt(temp[0]["ESCALATION_YR_AMT"])
       let sanitizedRate = temp[0]["NEW_RATE"].replace(/,/g, ""); // Remove commas
       let rate = parseFloat(sanitizedRate);
 
@@ -143,9 +145,7 @@ export default function FormData({ csvData }) {
     let sanitizedRate = rate.replace(/,/g, ""); // Remove commas
     rate = parseFloat(sanitizedRate);
 
-    return Number(parseFloat(quantity) * parseFloat(rate) * gst).toFixed(
-      2
-    );
+    return Number(parseFloat(quantity) * parseFloat(rate) * gst).toFixed(2);
   };
 
   const calculateCostPerItem = (rate, gst = 1.18) => {
@@ -153,9 +153,7 @@ export default function FormData({ csvData }) {
     let sanitizedRate = rate.replace(/,/g, ""); // Remove commas
     rate = parseFloat(sanitizedRate);
 
-    return Number(parseFloat(rate) * gst).toFixed(
-      2
-    );
+    return Number(parseFloat(rate) * gst).toFixed(2);
   };
 
   const handleQtyReqdChange = (event) => {
@@ -186,9 +184,12 @@ export default function FormData({ csvData }) {
       return;
     }
 
+    // Calculate the next serial number (SNo)
+    const nextSNo = modalData.length + 1;
+
     // Prepare the new data entry
     const newData = {
-      SNo: sNo,
+      SNo: nextSNo, // Set SNo to the next available number
       UnitName: unitName,
       GenericName: capitalizeFirstLetter(genericName),
       NomenclatureName: nomenclatureName,
@@ -196,6 +197,8 @@ export default function FormData({ csvData }) {
       LppDate: lppDate, // Format date using dayjs
       QtyMsn: qtyMsn,
       QtyUnsv: qtyUnsv,
+      EscalationYearPercentage: escalationPercentage,
+      EscalationYearAmt: escalationYearAmt,
       QtyReqd: qtyReqd,
       AU: AU,
       GST: GST,

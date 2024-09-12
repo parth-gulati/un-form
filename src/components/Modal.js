@@ -46,8 +46,8 @@ function createDataFromModal(modalData) {
     lppLcr: formatNumberToIndian(item.LPP || ''),
     mktSvyRate: '',
     year: item.LppDate || '',
-    escalationPercent: '',
-    escalationAmt: '',
+    escalationPercent: item.EscalationYearPercentage || '',
+    escalationAmt: formatNumberToIndian(item.EscalationYearAmt || ''),
     newRate: formatNumberToIndian(item.newRate || ''),
     gstPercent: '18',
     gstAmt: formatNumberToIndian(item.GST || ''),
@@ -129,7 +129,6 @@ const Modal = ({ data, onDelete }) => {
     printWindow.document.write("</head><body>");
     printWindow.document.write('<div class="appendix-text">Appendix</div>');
     printWindow.document.write(`<h3><u><b>UNIT NAME: ${data.length > 0 ? data[0]['UnitName'] : ''}</b></u></h3>`);
-    printWindow.document.write("<h4><u><b>LIST OF ADDITIONALITIES IN RESPECT OF 9 KUMAON INDBATT-XXIV UNIFIL (2ND ROTATION): EX TRADE</b></u></h4>");
 
     const table = document.querySelector("table");
     if (table) {
@@ -180,15 +179,6 @@ const Modal = ({ data, onDelete }) => {
       printWindow.document.write(cloneTable.outerHTML);
     }
 
-    printWindow.document.write(`
-      <div class="footer-text">
-        <p>(a) Coln No d,f,g & h will be filled by unit.</p>
-        <p>(b) Coln No a,b,c,e,j,k,l,m,n,o,p & q will be filled by OSG in back hand.</p>
-        <p>(c) Coln no s will be auto gen based on mathematical calculation {s=h(q+o)}.</p>
-        <p>(d) Coln t will be filled subsequently as and when photos are available.</p>
-      </div>
-    `);
-
     printWindow.document.write("</body></html>");
     printWindow.document.close();
     printWindow.focus();
@@ -199,8 +189,8 @@ const Modal = ({ data, onDelete }) => {
     const csvRows = [];
     const headers = [
       ' ', 'S No.', 'Generic Name', 'Sec', 'Cat Part No', 'Nomenclature', 'A/U', 
-      'Qty held in msn A', 'Qty UNSV in Svy Bd', 'Qty Reqd', 'LPP/LCR', 
-      'Mkt Svy Rate', 'Year', 'Escalation per Year %', 'Escalation per Year Amt', 
+      'Qty held in msn A', 'Qty UNSV in Svy Bd', 'Qty Reqd', 'LPP/LCR', 'Year',
+      'Mkt Svy Rate', 'Escalation per Year %', 'Escalation per Year Amt', 
       'New rate without GST', 'GST %', 'GST Amt', 'Cost per Item with GST', 'Total Cost', 'Photo'
     ];
     csvRows.push(headers.join(','));
@@ -209,7 +199,7 @@ const Modal = ({ data, onDelete }) => {
       const rowData = [ '',
         `"${row.sNo}"`, `"${row.GenericName}"`, `"${row.sec}"`, `"${row.catPartNo}"`, 
         `"${row.nomenclature}"`, `"${row.au}"`, `"${row.qtyHeld}"`, `"${row.qtyUnsv}"`, 
-        `"${row.qtyReqd}"`, `"${row.lppLcr}"`, `"${row.mktSvyRate}"`, `"${row.year}"`, 
+        `"${row.qtyReqd}"`, `"${row.lppLcr}"`, `"${row.year}"`, `"${row.mktSvyRate}"`, 
         `"${row.escalationPercent}"`, `"${row.escalationAmt}"`, `"${row.newRate}"`, 
         `"${row.gstPercent}"`, `"${row.gstAmt}"`, `"${row.costPerItem}"`, 
         `"${row.totalCost}"`, `"${row.photo}"`
@@ -265,9 +255,9 @@ const Modal = ({ data, onDelete }) => {
                 <TableCell sx={{ border: '1px solid white' }}>Qty UNSV in Svy Bd</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>Qty Reqd</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>LPP/LCR</TableCell>
-                <TableCell sx={{ border: '1px solid white' }}>Mkt Svy Rate</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>Year</TableCell>
-                <TableCell sx={{ border: '1px solid white' }} align="center" colSpan={2}>Escalation per Year</TableCell>
+                <TableCell sx={{ border: '1px solid white' }}>Mkt Svy Rate</TableCell>
+                <TableCell sx={{ border: '1px solid white' }} align="center" colSpan={2}>Escalation per Year (Compound)</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>New rate without GST</TableCell>
                 <TableCell sx={{ border: '1px solid white' }} align="center" colSpan={2}>GST</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>Cost per Item with GST</TableCell>
@@ -320,8 +310,8 @@ const Modal = ({ data, onDelete }) => {
                   <TableCell sx={{ border: '1px solid white' }}>{row.qtyUnsv}</TableCell>
                   <TableCell sx={{ border: '1px solid white' }}>{row.qtyReqd}</TableCell>
                   <TableCell sx={{ border: '1px solid white' }}>{row.lppLcr}</TableCell>
-                  <TableCell sx={{ border: '1px solid white' }}>{row.mktSvyRate}</TableCell>
                   <TableCell sx={{ border: '1px solid white' }}>{row.year}</TableCell>
+                  <TableCell sx={{ border: '1px solid white' }}>{row.mktSvyRate}</TableCell>
                   <TableCell sx={{ border: '1px solid white' }} align="center">{row.escalationPercent}</TableCell>
                   <TableCell sx={{ border: '1px solid white' }} align="center">{row.escalationAmt}</TableCell>
                   <TableCell sx={{ border: '1px solid white' }}>{row.newRate}</TableCell>

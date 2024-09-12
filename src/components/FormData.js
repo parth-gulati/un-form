@@ -234,7 +234,7 @@ export default function FormData({ csvData, theme }) {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: blue[500]}}>
+          <Avatar sx={{ m: 1, bgcolor: "#1d2d44"}}>
             <DynamicFormIcon />
           </Avatar>
           <Typography component="h1" variant="body1" color="primary">

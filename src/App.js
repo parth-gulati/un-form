@@ -5,15 +5,19 @@ import Navbar from "./components/Navbar";
 import Papa from "papaparse";
 import consolidated_csv from "./csvs/consolidated_spreadsheet.csv";
 import { useEffect, useState } from "react";
-import { purple, blue, lightBlue } from "@mui/material/colors";
+import {  lightBlue } from "@mui/material/colors"; 
 
 const theme = createTheme({
   palette: {
-    primary: blue,
-    secondary: purple,
+    primary: {
+      main: "#1d2d44", // Set the primary color to #1d2d44
+    },
+    secondary: {
+      main: "#3e5c76",
+    },
     background: {
       default: lightBlue[50],  // lightBlue[50] for background
-      paper: lightBlue[100],   // This applies to Paper components
+      paper: "#3e5c76",   // This applies to Paper components
     },
   },
   components: {
@@ -24,10 +28,18 @@ const theme = createTheme({
         },
       },
     },
+    MuiMenuItem: {
+      styleOverrides: {
+        root: {
+          color: "white", // Set the background color of the dropdown options to white
+          "&:hover": {
+            color: "#f0f0f0", // Optional: Set a hover color for better UX
+          },
+        },
+      },
+    },
   },
 });
-
-
 function App() {
   const [csvData, setCsvData] = useState(null);
 

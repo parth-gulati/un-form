@@ -27,7 +27,7 @@ const Navbar = () => {
           </Box>
           <Box
             component="img"
-            src={`${process.env.PUBLIC_URL}/top-left.png`}
+            src={`${process.env.PUBLIC_URL}/un-logo.png`}
             alt="Right"
             sx={{ 
               maxHeight: '100%', 

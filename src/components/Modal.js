@@ -257,7 +257,7 @@ const Modal = ({ data, onDelete }) => {
                 <TableCell sx={{ border: '1px solid white' }}>LPP/LCR</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>Year</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>Mkt Svy Rate</TableCell>
-                <TableCell sx={{ border: '1px solid white' }} align="center" colSpan={2}>Escalation per Year (Compound)</TableCell>
+                <TableCell sx={{ border: '1px solid white' }} align="center" colSpan={2}>Escalation per Year (Compoundly)</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>New rate without GST</TableCell>
                 <TableCell sx={{ border: '1px solid white' }} align="center" colSpan={2}>GST</TableCell>
                 <TableCell sx={{ border: '1px solid white' }}>Cost per Item with GST</TableCell>

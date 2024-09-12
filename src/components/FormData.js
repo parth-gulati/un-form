@@ -16,22 +16,17 @@ import {
   DialogTitle,
   DialogContent,
 } from "@mui/material";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
 import DynamicFormIcon from "@mui/icons-material/DynamicForm";
 import ImageBox from "./ImageBox";
 import Modal from "./Modal"; // Assuming this is a dynamic table component
-
-const theme = createTheme({
-  palette: {
-    mode: "dark",
-  },
-});
+import { blue } from "@mui/material/colors";
 
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
-export default function FormData({ csvData }) {
+export default function FormData({ csvData, theme }) {
   // State variables
   const [genericName, setGenericName] = useState(null);
   const [nomenclatureName, setNomenclatureName] = useState(null);
@@ -239,10 +234,10 @@ export default function FormData({ csvData }) {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "main" }}>
+          <Avatar sx={{ m: 1, bgcolor: blue[500]}}>
             <DynamicFormIcon />
           </Avatar>
-          <Typography component="h1" variant="body1">
+          <Typography component="h1" variant="body1" color="primary">
             Please fill out the form below
           </Typography>
           <Box
@@ -255,6 +250,7 @@ export default function FormData({ csvData }) {
               <Grid item xs={12} md={12} container spacing={3}>
                 <Grid item xs={12} sm={6} sx={{ marginBottom: 2 }}>
                   <TextField
+                    color="primary"
                     name="unitName"
                     variant="outlined"
                     required
@@ -277,6 +273,7 @@ export default function FormData({ csvData }) {
                     </InputLabel>
                     <Select
                       required
+                      color="primary"
                       labelId="generic-name-label"
                       id="generic-name-select"
                       value={genericName}
@@ -331,6 +328,7 @@ export default function FormData({ csvData }) {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
+                    color="primary"
                     name="LPP"
                     variant="outlined"
                     required
@@ -347,6 +345,7 @@ export default function FormData({ csvData }) {
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextField
+                    color="primary"
                     name="lppdate"
                     variant="outlined"
                     required
@@ -369,6 +368,7 @@ export default function FormData({ csvData }) {
                 >
                   <Grid item xs={12} sm={4}>
                     <TextField
+                      color="primary"
                       variant="outlined"
                       required
                       fullWidth
@@ -384,6 +384,7 @@ export default function FormData({ csvData }) {
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <TextField
+                      color="primary"
                       variant="outlined"
                       required
                       fullWidth
@@ -399,6 +400,7 @@ export default function FormData({ csvData }) {
                   </Grid>
                   <Grid item xs={12} sm={4}>
                     <TextField
+                      color="primary"
                       variant="outlined"
                       required
                       fullWidth

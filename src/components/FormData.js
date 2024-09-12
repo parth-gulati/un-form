@@ -454,7 +454,7 @@ export default function FormData({ csvData, theme }) {
                   maxWidth="lg"
                   fullWidth
                 >
-                  <DialogTitle>Preview</DialogTitle>
+                  <DialogTitle sx={{color: 'white'}}>Preview</DialogTitle>
                   <DialogContent>
                     {/* Pass modalData to the Modal component */}
                     <Modal data={modalData} onDelete={handleDelete} />

@@ -239,88 +239,88 @@ const Modal = ({ data, onDelete }) => {
 
   return (
     <>
-      <DialogTitle>Unit Name: {data.length > 0 ? data[0]['UnitName'] : ''} </DialogTitle>
+      <DialogTitle sx={{color: 'white'}}>Unit Name: {data.length > 0 ? data[0]['UnitName'] : ''} </DialogTitle>
       <DialogContent>
         <TableContainer component={Paper}>
-          <Table sx={{ minWidth: 650, border: '1.5px solid black' }} aria-label="simple table">
-            <TableHead sx={{ border: '1px solid black' }}>
+          <Table sx={{ minWidth: 650, border: '1.5px solid white', color: 'white' }} aria-label="simple table">
+            <TableHead sx={{ border: '1px solid white', color: 'white' }}>
               <TableRow>
-                <TableCell sx={{ border: '1px solid black' }}>S No.</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Generic Name</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Sec</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Cat Part No</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Nomenclature</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>A/U</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Qty held in msn A</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Qty UNSV in Svy Bd</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Qty Reqd</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>LPP/LCR</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Year</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Mkt Svy Rate</TableCell>
-                <TableCell sx={{ border: '1px solid black' }} align="center" colSpan={2}>Escalation per Year (Compoundly)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>New rate without GST</TableCell>
-                <TableCell sx={{ border: '1px solid black' }} align="center" colSpan={2}>GST</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Cost per Item with GST</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Total Cost</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Photo</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>Actions</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>S No.</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Generic Name</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Sec</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Cat Part No</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Nomenclature</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>A/U</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Qty held in msn A</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Qty UNSV in Svy Bd</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Qty Reqd</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>LPP/LCR</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Year</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Mkt Svy Rate</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center" colSpan={2}>Escalation per Year (Compoundly)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>New rate without GST</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center" colSpan={2}>GST</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Cost per Item with GST</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Total Cost</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Photo</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>Actions</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell sx={{ border: '1px solid black' }} colSpan={12}></TableCell>
-                <TableCell sx={{ border: '1px solid black' }} align="center">%</TableCell>
-                <TableCell sx={{ border: '1px solid black' }} align="center">Amt</TableCell>
-                <TableCell sx={{ border: '1px solid black' }} colSpan={1}></TableCell>
-                <TableCell sx={{ border: '1px solid black' }} align="center">%</TableCell>
-                <TableCell sx={{ border: '1px solid black' }} align="center">Amt</TableCell>
-                <TableCell sx={{ border: '1px solid black' }} colSpan={4}></TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} colSpan={12}></TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">%</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">Amt</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} colSpan={1}></TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">%</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">Amt</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} colSpan={4}></TableCell>
               </TableRow>
               <TableRow>
-                <TableCell sx={{ border: '1px solid black' }}>(a)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>{' '}</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(b)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(c)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(d)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(e)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(f)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(g)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(h)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(j)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(k)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(l)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(m)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(n)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(o)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(p)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(q)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(r)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(s)</TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>(t)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(a)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>{' '}</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(b)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(c)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(d)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(e)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(f)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(g)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(h)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(j)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(k)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(l)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(m)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(n)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(o)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(p)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(q)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(r)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(s)</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>(t)</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
               {rows.map((row, index) => (
                 <TableRow key={index}>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.sNo}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.GenericName}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.sec}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.catPartNo}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.nomenclature}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.au}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.qtyHeld}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.qtyUnsv}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.qtyReqd}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.lppLcr}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.year}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.mktSvyRate}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }} align="center">{row.escalationPercent}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }} align="center">{row.escalationAmt}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.newRate}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }} align="center">{row.gstPercent}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }} align="center">{row.gstAmt}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.costPerItem}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.totalCost}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>{row.photo}</TableCell>
-                  <TableCell sx={{ border: '1px solid black' }}>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.sNo}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.GenericName}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.sec}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.catPartNo}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.nomenclature}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.au}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.qtyHeld}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.qtyUnsv}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.qtyReqd}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.lppLcr}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.year}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.mktSvyRate}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">{row.escalationPercent}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">{row.escalationAmt}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.newRate}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">{row.gstPercent}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }} align="center">{row.gstAmt}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.costPerItem}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.totalCost}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>{row.photo}</TableCell>
+                  <TableCell sx={{ border: '1px solid white', color: 'white' }}>
                     <IconButton
                       color="secondary"
                       onClick={() => onDelete(index)}
@@ -332,16 +332,16 @@ const Modal = ({ data, onDelete }) => {
                 </TableRow>
               ))}
               <TableRow>
-                <TableCell sx={{ border: '1px solid black' }} colSpan={18} align="right"><b>Total</b></TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>{formatNumberToIndian(total.toFixed(2))}</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} colSpan={18} align="right"><b>Total</b></TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>{formatNumberToIndian(total.toFixed(2))}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell sx={{ border: '1px solid black' }} colSpan={18} align="right"><b>Round Off</b></TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>{formatNumberToIndian(roundOff.toFixed(2))}</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} colSpan={18} align="right"><b>Round Off</b></TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>{formatNumberToIndian(roundOff.toFixed(2))}</TableCell>
               </TableRow>
               <TableRow>
-                <TableCell sx={{ border: '1px solid black' }} colSpan={18} align="right"><b>Grand Total</b></TableCell>
-                <TableCell sx={{ border: '1px solid black' }}>{formatNumberToIndian(grandTotal.toFixed(2))}</TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }} colSpan={18} align="right"><b>Grand Total</b></TableCell>
+                <TableCell sx={{ border: '1px solid white', color: 'white' }}>{formatNumberToIndian(grandTotal.toFixed(2))}</TableCell>
               </TableRow>
             </TableBody>
           </Table>

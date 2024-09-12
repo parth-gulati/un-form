@@ -19,6 +19,9 @@ const theme = createTheme({
       default: lightBlue[50],  // lightBlue[50] for background
       paper: "#3e5c76",   // This applies to Paper components
     },
+    text: {
+      disabled: "#666666", // Adjust disabled color here
+    },
   },
   components: {
     MuiCssBaseline: {

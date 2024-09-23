@@ -1,22 +1,35 @@
-@echo off
-setlocal
+#!/bin/bash
 
-REM Change directory to where the batch file is located
-cd /d "%~dp0"
+# Change directory to where the script is located
+cd "$(dirname "$0")"
 
-REM Check if the 'build' directory exists
-if not exist build (
-    echo The 'build' directory does not exist. Please ensure it is in the same folder as this batch file.
-    pause
-    exit /b 1
-)
+# Check if the 'build' directory exists
+if [ ! -d "build" ]; then
+    echo "The 'build' directory does not exist. Please ensure it is in the same folder as this script."
+    read -p "Press Enter to continue..." # Pause equivalent
+    exit 1
+fi
 
-REM Start the HTTP server
-echo Starting the HTTP server...
-start python -m http.server 8000 --directory build
+# Check for python or python3 and start the HTTP server
+if command -v python &>/dev/null; then
+    echo "Starting the HTTP server with python..."
+    python -m http.server 8000 --directory build &
+elif command -v python3 &>/dev/null; then
+    echo "Starting the HTTP server with python3..."
+    python3 -m http.server 8000 --directory build &
+else
+    echo "Neither python nor python3 is installed. Please install Python."
+    exit 1
+fi
 
-REM Open the default web browser to the server URL
-start http://localhost:8000
+# Open the default web browser to the server URL
+if command -v xdg-open &>/dev/null; then
+    xdg-open http://localhost:8000
+elif command -v open &>/dev/null; then
+    open http://localhost:8000
+else
+    echo "Please open http://localhost:8000 manually."
+fi
 
-echo Server is running. You should see the site open in your browser.
-pause
+echo "Server is running. You should see the site open in your browser."
+read -p "Press Enter to stop the server..."
